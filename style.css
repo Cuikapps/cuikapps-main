@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#logoIMG {
+  max-height: 96px;
+  margin-left: 10px;
+}
+nav {
+  background-color: #0c1848;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  min-height: 8vh;
+  font-family: "Oswald", sans-serif;
+}
+.navigation li {
+  list-style: none;
+}
+.navigation {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+}
+.navigation button {
+  background-color: #0c1848;
+  color: honeydew;
+  border: 0px;
+  height: 100px;
+  width: 200px;
+}
+.navigation button:hover {
+  background-color: #158eff;
+}
