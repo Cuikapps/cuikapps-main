@@ -1,35 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-#logoIMG {
-  max-height: 96px;
-  margin-left: 10px;
-}
-nav {
+.logo {
+  height: 100px;
   background-color: #0c1848;
-  justify-content: space-around;
+}
+.logo img {
+  margin-left: 30px;
+  height: 96px;
+}
+.header {
   display: flex;
   align-items: center;
-  min-height: 8vh;
-  font-family: "Oswald", sans-serif;
+  background-color: #0c1848;
+  position: relative;
 }
-.navigation li {
+.links {
+  position: absolute;
+}
+.links ul {
+  display: flex;
+  margin-right: 5%;
+  margin-left: 150%;
+  justify-content: space-around;
+  width: 500px;
   list-style: none;
 }
-.navigation {
-  display: flex;
-  width: 30%;
-  justify-content: space-around;
+.links ul li a {
+  text-decoration: none;
+  color: #e7e7de;
+  font-weight: 500;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
 }
-.navigation button {
-  background-color: #0c1848;
-  color: honeydew;
-  border: 0px;
-  height: 100px;
-  width: 200px;
+
+@media screen and (max-width: 1230px) {
+  .links ul {
+    margin-left: 120%;
+  }
 }
-.navigation button:hover {
-  background-color: #158eff;
+@media screen and (max-width: 1064px) {
+  .links ul {
+    margin-left: 100%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .links ul {
+    margin-left: 50%;
+  }
+}
+@media screen and (max-width: 725px) {
+  .links ul {
+    margin-left: 100%;
+  }
 }
