@@ -44,12 +44,7 @@ function getHeight() {
     document.documentElement.clientHeight
   );
 }
-
-function responsiveLoop() {
-}
-
 function app() {
   navSlide();
 }
 app();
-setInterval(responsiveLoop, 100);

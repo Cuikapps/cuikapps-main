@@ -14,7 +14,7 @@ body {
   position: relative;
   z-index: 1;
   margin-left: 5em;
-  background-color: #0c1848;
+  background-color: #0f3057;
 }
 .logo img {
   height: 75px;
@@ -26,7 +26,36 @@ body {
   height: 5em;
   justify-content: space-between;
   align-items: center;
-  background-color: #0c1848;
+  background-color: #0f3057;
+}
+.footer {
+  background-color: #0f3057;
+  display: flex;
+  padding: 2em;
+  justify-content: space-between;
+}
+.footer h6 {
+  margin-top: 5.5em;
+  margin-left: 15em;
+  color: #e7e7de;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+.products {
+  color: #e7e7de;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+  margin-right: 45em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.products a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
 }
 .link {
   z-index: 0;
@@ -57,35 +86,108 @@ body {
   flex-direction: row;
   margin-top: 10em;
 }
-.cuik-suite div {
+.holder {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .cuik-suite p {
   letter-spacing: 2px;
+  margin-top: 1em;
   width: fit-content;
   font-size: 40px;
-  color: #0c1848;
-  margin-top: 1.5em;
+  color: #0f3057;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   text-align: center;
 }
+.get-link:hover {
+  background-color: #00587a;
+}
+.cuik-suite img {
+  margin-left: 2em;
+  border-radius: 10%;
+}
 .cuik-suite a {
-
-  display: block;
+  display: flex;
+  margin-top: 1em;
+  border-radius: 2.5em;
+  vertical-align: middle;
+  justify-content: center;
   text-decoration: none;
-  text-align: center;
-  width: 30em;
+  width: 20em;
   height: 5em;
+  background-color: #0f3057;
+  border-color: #e7e7de;
+  border-width: 5px;
+  border-style: solid;
+}
+.h1-link {
+  margin: auto;
+  color: #e7e7de;
+  font-weight: normal;
+}
+.quote {
+  margin-top: 1.5em;
+  display: flex;
+  align-items: center;
+  margin-left: -10%;
+  margin-right: -10%;
+  position: absolute;
+  background-color: #0f3057;
+  padding: 2em;
+  width: 100%;
+}
+.quote img {
+  height: 20em;
+}
+.quote h2 {
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin-left: 2em;
+  color: #e7e7de;
+  font-size: 40px;
+}
+.cuik-convertor {
+  margin-top: 30em;
+  display: flex;
+  flex-direction: row;
+}
+.cuik-convertor img {
+  margin-left: -1.5em;
+  transform: scale(0.8);
+  border-radius: 10%;
+}
+.cuik-convertor p {
+  letter-spacing: 2px;
+  margin-top: 1em;
+  width: fit-content;
+  font-size: 40px;
+  color: #0f3057;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+.cuik-convertor a {
+  display: flex;
+  margin-top: 2em;
+  border-radius: 2.5em;
+  vertical-align: middle;
+  justify-content: center;
+  text-decoration: none;
+  width: 20em;
+  height: 5em;
+  background-color: #0f3057;
+  border-color: #e7e7de;
   border-width: 5px;
   border-style: solid;
 }
 h1 {
   letter-spacing: 2px;
   font-size: 40px;
-  color: #0c1848;
+  color: #0f3057;
   margin-top: 1.5em;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
@@ -106,15 +208,52 @@ h1 {
   font-family: "Poppins", sans-serif;
 }
 .links ul li a:hover {
-  background-color: #1a2c6d;
+  background-color: #00587a;
   border-bottom-style: solid;
   border-bottom-width: 4px;
   border-bottom-color: transparent;
 }
 @media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
+  .footer h6 {
+    margin-left: 1em;
+  }
+  .footer h5 {
+    visibility: hidden;
+    display: none;
+  }
+  .cuik-suite {
+    margin-top: 0.5em;
+  }
+  .cuik-convertor {
+    margin-top: 27em;
+  }
+  .quote {
+    padding-left: 1em;
+    flex-direction: column;
+    margin-left: -1em;
+    padding-bottom: 1em;
+  }
+  .quote h2 {
+    margin-left: 0.15em;
+    text-align: center;
+    font-size: 2.25em;
+  }
+  .quote img {
+    margin-top: -4em;
+  }
   .links ul {
     flex-direction: column;
     width: 100%;
+  }
+  .page {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+  .quote img {
+    transform: scale(0.5, 0.5);
   }
   .logo {
     margin-left: 0em;
@@ -141,16 +280,37 @@ h1 {
   }
   .links {
     transform: translateY(-10em) translateX(0em);
-    background-color: #0c1848;
+    background-color: #0f3057;
     width: 100%;
     position: absolute;
   }
   .links ul li a:hover {
-    background-color: #0c1848;
+    background-color: #0f3057;
     color: #e7e7de;
     border-bottom-style: none;
     border-bottom-width: none;
     border-bottom-color: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cuik-convertor {
+    margin-top: 40em;
+    flex-direction: column;
+  }
+  .cuik-convertor img {
+    transform: scale(1.2, 0.7);
+    margin-left: 1em;
+    margin-right: 0em;
+  }
+  .cuik-suite {
+    margin-top: 1em;
+    margin-left: 0em;
+    flex-direction: column;
+  }
+  .cuik-suite img {
+    transform: scale(1.2, 0.7);
+    margin-left: 1em;
+    margin-right: 0em;
   }
 }
 @keyframes dropdown {
