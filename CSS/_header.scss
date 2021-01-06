@@ -1,0 +1,52 @@
+@import "./mainColors";
+.link {
+  z-index: 0;
+}
+.links ul {
+  margin-right: 2em;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 500px;
+  right: 0em;
+  list-style: none;
+}
+.logo {
+  position: relative;
+  z-index: 1;
+  margin-left: 5em;
+  background-color: $themeColor;
+}
+.logo img {
+  height: 75px;
+}
+h1 {
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: $themeColor;
+  margin-top: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+.burger {
+  visibility: hidden;
+  display: none;
+}
+.links ul li a {
+  text-decoration: none;
+  color: $lightGray;
+  display: flex;
+  font-weight: 500;
+  padding: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.25em;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+}
+.links ul li a:hover {
+  background-color: $cyan;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: transparent;
+}

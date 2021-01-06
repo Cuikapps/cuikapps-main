@@ -1,0 +1,41 @@
+@import "./mainColors";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $lightGray;
+  position: relative;
+  width: 100%;
+}
+.header {
+  display: flex;
+  width: 100%;
+  margin-right: 0em;
+  height: 5em;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $themeColor;
+}
+.footer {
+  background-color: $themeColor;
+  display: flex;
+  padding: 2em;
+  justify-content: space-between;
+}
+.footer h6 {
+  margin-top: 5.5em;
+  margin-left: 15em;
+  color: $lightGray;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+.page {
+  margin-left: 10%;
+  height: 100%;
+  width: 80%;
+  background-color: transparent;
+  margin-right: 10%;
+}
