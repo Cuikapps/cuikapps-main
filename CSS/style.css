@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
+/* * Body ----------------------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -9,15 +9,6 @@ body {
   background-color: #e7e7de;
   position: relative;
   width: 100%;
-}
-.logo {
-  position: relative;
-  z-index: 1;
-  margin-left: 5em;
-  background-color: #0f3057;
-}
-.logo img {
-  height: 75px;
 }
 .header {
   display: flex;
@@ -42,21 +33,18 @@ body {
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
 }
-.products {
-  color: #e7e7de;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-  font-family: "Poppins", sans-serif;
-  margin-right: 45em;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+.page {
+  margin-left: 10%;
+  height: 100%;
+  width: 80%;
+  background-color: transparent;
+  margin-right: 10%;
 }
-.products a {
-  color: inherit;
-  font: inherit;
-  text-decoration: none;
-}
+/* ! ----------------------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Header---------------------------------------------------------------------------- */
 .link {
   z-index: 0;
 }
@@ -70,16 +58,78 @@ body {
   right: 0em;
   list-style: none;
 }
+.logo {
+  position: relative;
+  z-index: 1;
+  margin-left: 5em;
+  background-color: #0f3057;
+}
+.logo img {
+  height: 75px;
+}
+h1 {
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: #0f3057;
+  margin-top: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+.burger {
+  visibility: hidden;
+  display: none;
+}
+.links ul li a {
+  text-decoration: none;
+  color: #e7e7de;
+  display: flex;
+  font-weight: 500;
+  padding: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.25em;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+}
+.links ul li a:hover {
+  background-color: #00587a;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: transparent;
+}
+/* !------------------------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Footer -----------------------------------------------------------------------------*/
+.products {
+  color: #e7e7de;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+  margin-right: 45em;
+  display: flex;
+  margin-left: 10rem;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.products a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+.h1-link {
+  margin: auto;
+  color: #e7e7de;
+  font-weight: normal;
+}
+/* !------------------------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Content ---------------------------------------------------------------*/
 #tabbed {
   margin-left: 1em;
   margin-top: 0.5em;
-}
-.page {
-  margin-left: 10%;
-  height: 100%;
-  width: 80%;
-  background-color: transparent;
-  margin-right: 10%;
 }
 .cuik-suite {
   display: flex;
@@ -122,11 +172,6 @@ body {
   border-color: #e7e7de;
   border-width: 5px;
   border-style: solid;
-}
-.h1-link {
-  margin: auto;
-  color: #e7e7de;
-  font-weight: normal;
 }
 .quote {
   margin-top: 1.5em;
@@ -184,36 +229,13 @@ body {
   border-width: 5px;
   border-style: solid;
 }
-h1 {
-  letter-spacing: 2px;
-  font-size: 40px;
-  color: #0f3057;
-  margin-top: 1.5em;
-  font-family: "Poppins", sans-serif;
-  font-weight: bold;
-}
-.burger {
-  visibility: hidden;
-  display: none;
-}
-.links ul li a {
-  text-decoration: none;
-  color: #e7e7de;
-  display: flex;
-  font-weight: 500;
-  padding: 2em;
-  padding-top: 1.5em;
-  padding-bottom: 1.25em;
-  font-size: large;
-  font-family: "Poppins", sans-serif;
-}
-.links ul li a:hover {
-  background-color: #00587a;
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: transparent;
-}
+/* ! ---------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Screen width of 768---------------------------------------------------*/
 @media screen and (max-width: 768px) {
+  /* * Body ---------------------------------------------------------------*/
   .footer {
     flex-direction: column-reverse;
   }
@@ -224,36 +246,18 @@ h1 {
     visibility: hidden;
     display: none;
   }
-  .cuik-suite {
-    margin-top: 0.5em;
-  }
-  .cuik-convertor {
-    margin-top: 27em;
-  }
-  .quote {
-    padding-left: 1em;
-    flex-direction: column;
-    margin-left: -1em;
-    padding-bottom: 1em;
-  }
-  .quote h2 {
-    margin-left: 0.15em;
-    text-align: center;
-    font-size: 2.25em;
-  }
-  .quote img {
-    margin-top: -4em;
-  }
-  .links ul {
-    flex-direction: column;
-    width: 100%;
-  }
   .page {
     margin-right: 1em;
     margin-left: 1em;
   }
-  .quote img {
-    transform: scale(0.5, 0.5);
+  /* ! ---------------------------------------------------------------------*/
+  /**/
+  /**/
+  /**/
+  /* * Header --------------------------------------------------------------*/
+  .links ul {
+    flex-direction: column;
+    width: 100%;
   }
   .logo {
     margin-left: 0em;
@@ -291,8 +295,45 @@ h1 {
     border-bottom-width: none;
     border-bottom-color: none;
   }
+  /* ! -----------------------------------------------------------------------*/
+  /**/
+  /**/
+  /**/
+  /* * Content -------------------------------------------------------------*/
+  .cuik-suite {
+    margin-top: 0.5em;
+    flex-direction: column;
+  }
+  .cuik-convertor {
+    margin-top: 27em;
+    flex-direction: column;
+  }
+  .quote {
+    padding-left: 1em;
+    flex-direction: column;
+    margin-left: -1em;
+    padding-bottom: 1em;
+  }
+  .quote h2 {
+    margin-left: 0.15em;
+    text-align: center;
+    font-size: 2.25em;
+  }
+  .quote img {
+    margin-top: -4em;
+  }
+  .quote img {
+    transform: scale(0.5, 0.5);
+  }
+  /* ! -----------------------------------------------------------------------*/
 }
+/* ! -----------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Screen width of 500---------------------------------------------------*/
 @media screen and (max-width: 500px) {
+  /* * Content-------------------------------------------------------------*/
   .cuik-convertor {
     margin-top: 40em;
     flex-direction: column;
@@ -312,7 +353,13 @@ h1 {
     margin-left: 1em;
     margin-right: 0em;
   }
+  /* ! -----------------------------------------------------------------------*/
 }
+/* ! -----------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Animations ----------------------------------------------------------------*/
 @keyframes dropdown {
   from {
     transform: translateY(-10em);
@@ -345,3 +392,4 @@ h1 {
     transform: translateY(-10em);
   }
 }
+/* ! -----------------------------------------------------------------------*/
