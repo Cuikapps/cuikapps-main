@@ -8,14 +8,14 @@ const burgerBottom = document.querySelector("#b-bottom");
 
 const navSlide = () => {
   burger.addEventListener("click", () => {
-    if (drop == true) {
+    if (drop === true) {
       nav.style.animation = `dropdown-rev 0.5s ease forwards`;
 
       navLinks.forEach((link, index) => {
         link.style.animation = `word-fade-rev 1s ease forwards`;
       });
       drop = false;
-    } else if (drop != true) {
+    } else if (drop !== true) {
       nav.style.animation = `dropdown 0.5s ease forwards`;
 
       navLinks.forEach((link, index) => {
