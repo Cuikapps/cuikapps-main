@@ -3,43 +3,28 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
   background-color: #e7e7de;
   position: relative;
   width: 100%;
 }
-
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-right: 0em;
   height: 5em;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   background-color: #0f3057;
 }
-
 .footer {
   background-color: #0f3057;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 2em;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .footer h6 {
   margin-top: 5.5em;
   margin-left: 15em;
@@ -48,7 +33,6 @@ body {
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
 }
-
 .page {
   margin-left: 10%;
   height: 100%;
@@ -56,7 +40,6 @@ body {
   background-color: transparent;
   margin-right: 10%;
 }
-
 /* ! ----------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -65,35 +48,25 @@ body {
 .link {
   z-index: 0;
 }
-
 .links ul {
   margin-right: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
   width: 500px;
   right: 0em;
   list-style: none;
 }
-
 .logo {
   position: relative;
   z-index: 1;
   margin-left: 5em;
   background-color: #0f3057;
 }
-
 .logo img {
   height: 75px;
 }
-
 h1 {
   letter-spacing: 2px;
   font-size: 40px;
@@ -102,17 +75,13 @@ h1 {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
-
 .burger {
   visibility: hidden;
   display: none;
 }
-
 .links ul li a {
   text-decoration: none;
   color: #e7e7de;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-weight: 500;
   padding: 2em;
@@ -121,14 +90,12 @@ h1 {
   font-size: large;
   font-family: "Poppins", sans-serif;
 }
-
 .links ul li a:hover {
   background-color: #00587a;
   border-bottom-style: solid;
   border-bottom-width: 4px;
   border-bottom-color: transparent;
 }
-
 /* !------------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -140,31 +107,21 @@ h1 {
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
   margin-right: 45em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-left: 10rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
 }
-
 .products a {
   color: inherit;
   font: inherit;
   text-decoration: none;
 }
-
 .h1-link {
   margin: auto;
   color: #e7e7de;
   font-weight: normal;
 }
-
 /* !------------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -174,39 +131,20 @@ h1 {
   margin-left: 1em;
   margin-top: 0.5em;
 }
-
 .cuik-suite {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin-top: 10em;
 }
-
 .holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
 .cuik-suite p {
   letter-spacing: 2px;
   margin-top: 1em;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   font-size: 40px;
   color: #0f3057;
@@ -214,26 +152,19 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
-
 .get-link:hover {
   background-color: #00587a;
 }
-
 .cuik-suite img {
   margin-left: 2em;
   border-radius: 10%;
 }
-
 .cuik-suite a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 1em;
   border-radius: 2.5em;
   vertical-align: middle;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   text-decoration: none;
   width: 20em;
   height: 5em;
@@ -242,15 +173,10 @@ h1 {
   border-width: 5px;
   border-style: solid;
 }
-
 .quote {
   margin-top: 1.5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-left: -10%;
   margin-right: -10%;
   position: absolute;
@@ -258,11 +184,9 @@ h1 {
   padding: 2em;
   width: 100%;
 }
-
 .quote img {
   height: 20em;
 }
-
 .quote h2 {
   letter-spacing: 2px;
   font-family: "Poppins", sans-serif;
@@ -271,30 +195,19 @@ h1 {
   color: #e7e7de;
   font-size: 40px;
 }
-
 .cuik-convertor {
   margin-top: 30em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 .cuik-convertor img {
   margin-left: -1.5em;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  transform: scale(0.8);
   border-radius: 10%;
 }
-
 .cuik-convertor p {
   letter-spacing: 2px;
   margin-top: 1em;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   font-size: 40px;
   color: #0f3057;
@@ -302,17 +215,12 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
-
 .cuik-convertor a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 2em;
   border-radius: 2.5em;
   vertical-align: middle;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   text-decoration: none;
   width: 20em;
   height: 5em;
@@ -321,7 +229,6 @@ h1 {
   border-width: 5px;
   border-style: solid;
 }
-
 /* ! ---------------------------------------------------------------------*/
 /**/
 /**/
@@ -330,10 +237,7 @@ h1 {
 @media screen and (max-width: 768px) {
   /* * Body ---------------------------------------------------------------*/
   .footer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
   .footer h6 {
     margin-left: 1em;
@@ -352,10 +256,7 @@ h1 {
   /**/
   /* * Header --------------------------------------------------------------*/
   .links ul {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     width: 100%;
   }
   .logo {
@@ -363,17 +264,10 @@ h1 {
   }
   .burger {
     visibility: visible;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     position: absolute;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-evenly;
     right: 3em;
     cursor: pointer;
     width: 5%;
@@ -389,8 +283,7 @@ h1 {
     height: 0.189em;
   }
   .links {
-    -webkit-transform: translateY(-10em) translateX(0em);
-            transform: translateY(-10em) translateX(0em);
+    transform: translateY(-10em) translateX(0em);
     background-color: #0f3057;
     width: 100%;
     position: absolute;
@@ -409,24 +302,15 @@ h1 {
   /* * Content -------------------------------------------------------------*/
   .cuik-suite {
     margin-top: 0.5em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .cuik-convertor {
     margin-top: 27em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .quote {
     padding-left: 1em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     margin-left: -1em;
     padding-bottom: 1em;
   }
@@ -439,12 +323,10 @@ h1 {
     margin-top: -4em;
   }
   .quote img {
-    -webkit-transform: scale(0.5, 0.5);
-            transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
   }
   /* ! -----------------------------------------------------------------------*/
 }
-
 /* ! -----------------------------------------------------------------------*/
 /**/
 /**/
@@ -454,69 +336,38 @@ h1 {
   /* * Content-------------------------------------------------------------*/
   .cuik-convertor {
     margin-top: 40em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .cuik-convertor img {
-    -webkit-transform: scale(1.2, 0.7);
-            transform: scale(1.2, 0.7);
+    transform: scale(1.2, 0.7);
     margin-left: 1em;
     margin-right: 0em;
   }
   .cuik-suite {
     margin-top: 1em;
     margin-left: 0em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .cuik-suite img {
-    -webkit-transform: scale(1.2, 0.7);
-            transform: scale(1.2, 0.7);
+    transform: scale(1.2, 0.7);
     margin-left: 1em;
     margin-right: 0em;
   }
   /* ! -----------------------------------------------------------------------*/
 }
-
 /* ! -----------------------------------------------------------------------*/
 /**/
 /**/
 /**/
 /* * Animations ----------------------------------------------------------------*/
-@-webkit-keyframes dropdown {
-  from {
-    -webkit-transform: translateY(-10em);
-            transform: translateY(-10em);
-  }
-  to {
-    -webkit-transform: translateY(9.67em);
-            transform: translateY(9.67em);
-  }
-}
 @keyframes dropdown {
   from {
-    -webkit-transform: translateY(-10em);
-            transform: translateY(-10em);
+    transform: translateY(-10em);
   }
   to {
-    -webkit-transform: translateY(9.67em);
-            transform: translateY(9.67em);
+    transform: translateY(9.67em);
   }
 }
-
-@-webkit-keyframes word-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes word-fade {
   from {
     opacity: 0;
@@ -525,16 +376,6 @@ h1 {
     opacity: 1;
   }
 }
-
-@-webkit-keyframes word-fade-rev {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 @keyframes word-fade-rev {
   from {
     opacity: 1;
@@ -543,28 +384,12 @@ h1 {
     opacity: 0;
   }
 }
-
-@-webkit-keyframes dropdown-rev {
-  from {
-    -webkit-transform: translateY(9.67em);
-            transform: translateY(9.67em);
-  }
-  to {
-    -webkit-transform: translateY(-10em);
-            transform: translateY(-10em);
-  }
-}
-
 @keyframes dropdown-rev {
   from {
-    -webkit-transform: translateY(9.67em);
-            transform: translateY(9.67em);
+    transform: translateY(9.67em);
   }
   to {
-    -webkit-transform: translateY(-10em);
-            transform: translateY(-10em);
+    transform: translateY(-10em);
   }
 }
-
 /* ! -----------------------------------------------------------------------*/
-/*# sourceMappingURL=style.css.map */

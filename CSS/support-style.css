@@ -1,31 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
 /* * Body ----------------------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 body {
   background-color: #e7e7de;
   position: relative;
   width: 100%;
 }
+
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-right: 0em;
   height: 5em;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #0f3057;
 }
+
 .footer {
   background-color: #0f3057;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 2em;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .footer h6 {
   margin-top: 5.5em;
   margin-left: 15em;
@@ -34,6 +48,7 @@ body {
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
 }
+
 .page {
   margin-left: 10%;
   height: 100%;
@@ -41,6 +56,7 @@ body {
   background-color: transparent;
   margin-right: 10%;
 }
+
 /* ! ----------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -49,25 +65,35 @@ body {
 .link {
   z-index: 0;
 }
+
 .links ul {
   margin-right: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
-  align-items: center;
-  justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 500px;
   right: 0em;
   list-style: none;
 }
+
 .logo {
   position: relative;
   z-index: 1;
   margin-left: 5em;
   background-color: #0f3057;
 }
+
 .logo img {
   height: 75px;
 }
+
 h1 {
   letter-spacing: 2px;
   font-size: 40px;
@@ -76,13 +102,17 @@ h1 {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
+
 .burger {
   visibility: hidden;
   display: none;
 }
+
 .links ul li a {
   text-decoration: none;
   color: #e7e7de;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-weight: 500;
   padding: 2em;
@@ -91,12 +121,14 @@ h1 {
   font-size: large;
   font-family: "Poppins", sans-serif;
 }
+
 .links ul li a:hover {
   background-color: #00587a;
   border-bottom-style: solid;
   border-bottom-width: 4px;
   border-bottom-color: transparent;
 }
+
 /* !------------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -105,7 +137,10 @@ h1 {
 @media screen and (max-width: 768px) {
   /* * Body ---------------------------------------------------------------*/
   .footer {
-    flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
   .footer h6 {
     margin-left: 1em;
@@ -124,7 +159,10 @@ h1 {
   /**/
   /* * Header ----------------------------------------------------------------*/
   .links ul {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
   }
   .logo {
@@ -132,10 +170,17 @@ h1 {
   }
   .burger {
     visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: absolute;
-    flex-direction: column;
-    justify-content: space-evenly;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     right: 3em;
     cursor: pointer;
     width: 5%;
@@ -151,7 +196,8 @@ h1 {
     height: 0.189em;
   }
   .links {
-    transform: translateY(-10em) translateX(0em);
+    -webkit-transform: translateY(-10em) translateX(0em);
+            transform: translateY(-10em) translateX(0em);
     background-color: #0f3057;
     width: 100%;
     position: absolute;
@@ -165,19 +211,42 @@ h1 {
   }
   /* !------------------------------------------------------------------------------------*/
 }
+
 /* !------------------------------------------------------------------------------------*/
 /**/
 /**/
 /**/
 /* * Animations ----------------------------------------------------------------*/
-@keyframes dropdown {
+@-webkit-keyframes dropdown {
   from {
-    transform: translateY(-10em);
+    -webkit-transform: translateY(-10em);
+            transform: translateY(-10em);
   }
   to {
-    transform: translateY(9.67em);
+    -webkit-transform: translateY(9.67em);
+            transform: translateY(9.67em);
   }
 }
+@keyframes dropdown {
+  from {
+    -webkit-transform: translateY(-10em);
+            transform: translateY(-10em);
+  }
+  to {
+    -webkit-transform: translateY(9.67em);
+            transform: translateY(9.67em);
+  }
+}
+
+@-webkit-keyframes word-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes word-fade {
   from {
     opacity: 0;
@@ -186,6 +255,16 @@ h1 {
     opacity: 1;
   }
 }
+
+@-webkit-keyframes word-fade-rev {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes word-fade-rev {
   from {
     opacity: 1;
@@ -194,12 +273,28 @@ h1 {
     opacity: 0;
   }
 }
-@keyframes dropdown-rev {
+
+@-webkit-keyframes dropdown-rev {
   from {
-    transform: translateY(9.67em);
+    -webkit-transform: translateY(9.67em);
+            transform: translateY(9.67em);
   }
   to {
-    transform: translateY(-10em);
+    -webkit-transform: translateY(-10em);
+            transform: translateY(-10em);
   }
 }
+
+@keyframes dropdown-rev {
+  from {
+    -webkit-transform: translateY(9.67em);
+            transform: translateY(9.67em);
+  }
+  to {
+    -webkit-transform: translateY(-10em);
+            transform: translateY(-10em);
+  }
+}
+
 /* ! -----------------------------------------------------------------------*/
+/*# sourceMappingURL=support-style.css.map */
