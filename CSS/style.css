@@ -34,6 +34,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 2em;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -41,8 +45,9 @@ body {
 }
 
 .footer h6 {
-  margin-top: 5.5em;
-  margin-left: 15em;
+  margin-top: 6em;
+  margin-right: 10%;
+  margin-left: 75%;
   color: #e7e7de;
   font-weight: 200;
   letter-spacing: 0.5px;
@@ -62,10 +67,6 @@ body {
 /**/
 /**/
 /* * Header---------------------------------------------------------------------------- */
-.link {
-  z-index: 0;
-}
-
 .links ul {
   margin-right: 2em;
   display: -webkit-box;
@@ -78,9 +79,30 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  width: 500px;
-  right: 0em;
+  width: 300px;
+  right: 5em;
   list-style: none;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #e7e7de;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 500;
+  padding: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.25em;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+}
+
+.links ul li a:hover {
+  background-color: #00587a;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: transparent;
 }
 
 .logo {
@@ -108,27 +130,6 @@ h1 {
   display: none;
 }
 
-.links ul li a {
-  text-decoration: none;
-  color: #e7e7de;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 500;
-  padding: 2em;
-  padding-top: 1.5em;
-  padding-bottom: 1.25em;
-  font-size: large;
-  font-family: "Poppins", sans-serif;
-}
-
-.links ul li a:hover {
-  background-color: #00587a;
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: transparent;
-}
-
 /* !------------------------------------------------------------------------------------*/
 /**/
 /**/
@@ -139,11 +140,11 @@ h1 {
   font-weight: 200;
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
-  margin-right: 45em;
+  margin-right: 30%;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 10rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -186,7 +187,31 @@ h1 {
   margin-top: 10em;
 }
 
-.holder {
+.cuik-suite img {
+  margin-left: 2em;
+  border-radius: 10%;
+}
+
+.cuik-suite a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1em;
+  border-radius: 2.5em;
+  vertical-align: middle;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  width: 20em;
+  height: 5em;
+  background-color: #0f3057;
+  border-color: #e7e7de;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.cuik-suite .holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,30 +242,6 @@ h1 {
 
 .get-link:hover {
   background-color: #00587a;
-}
-
-.cuik-suite img {
-  margin-left: 2em;
-  border-radius: 10%;
-}
-
-.cuik-suite a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 1em;
-  border-radius: 2.5em;
-  vertical-align: middle;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-decoration: none;
-  width: 20em;
-  height: 5em;
-  background-color: #0f3057;
-  border-color: #e7e7de;
-  border-width: 5px;
-  border-style: solid;
 }
 
 .quote {
@@ -329,12 +330,6 @@ h1 {
 /* * Screen width of 768---------------------------------------------------*/
 @media screen and (max-width: 768px) {
   /* * Body ---------------------------------------------------------------*/
-  .footer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
   .footer h6 {
     margin-left: 1em;
   }
@@ -437,8 +432,6 @@ h1 {
   }
   .quote img {
     margin-top: -4em;
-  }
-  .quote img {
     -webkit-transform: scale(0.5, 0.5);
             transform: scale(0.5, 0.5);
   }

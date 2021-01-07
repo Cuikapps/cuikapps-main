@@ -21,16 +21,18 @@ body {
 .footer {
   background-color: $themeColor;
   display: flex;
+  flex-direction: column;
   padding: 2em;
   justify-content: space-between;
-}
-.footer h6 {
-  margin-top: 5.5em;
-  margin-left: 15em;
-  color: $lightGray;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-  font-family: "Poppins", sans-serif;
+  h6 {
+    margin-top: 6em;
+    margin-right: 10%;
+    margin-left: 75%;
+    color: $lightGray;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    font-family: "Poppins", sans-serif;
+  }
 }
 .page {
   margin-left: 10%;

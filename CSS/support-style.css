@@ -34,6 +34,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 2em;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -41,8 +45,9 @@ body {
 }
 
 .footer h6 {
-  margin-top: 5.5em;
-  margin-left: 15em;
+  margin-top: 6em;
+  margin-right: 10%;
+  margin-left: 75%;
   color: #e7e7de;
   font-weight: 200;
   letter-spacing: 0.5px;
@@ -62,10 +67,6 @@ body {
 /**/
 /**/
 /* * Header---------------------------------------------------------------------------- */
-.link {
-  z-index: 0;
-}
-
 .links ul {
   margin-right: 2em;
   display: -webkit-box;
@@ -78,9 +79,30 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  width: 500px;
-  right: 0em;
+  width: 300px;
+  right: 5em;
   list-style: none;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #e7e7de;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 500;
+  padding: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.25em;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+}
+
+.links ul li a:hover {
+  background-color: #00587a;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: transparent;
 }
 
 .logo {
@@ -108,25 +130,40 @@ h1 {
   display: none;
 }
 
-.links ul li a {
-  text-decoration: none;
+/* !------------------------------------------------------------------------------------*/
+/**/
+/**/
+/**/
+/* * Footer ----------------------------------------------------------------*/
+.products {
   color: #e7e7de;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+  margin-right: 30%;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-weight: 500;
-  padding: 2em;
-  padding-top: 1.5em;
-  padding-bottom: 1.25em;
-  font-size: large;
-  font-family: "Poppins", sans-serif;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.links ul li a:hover {
-  background-color: #00587a;
-  border-bottom-style: solid;
-  border-bottom-width: 4px;
-  border-bottom-color: transparent;
+.products a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.h1-link {
+  margin: auto;
+  color: #e7e7de;
+  font-weight: normal;
 }
 
 /* !------------------------------------------------------------------------------------*/
