@@ -22,52 +22,12 @@
   margin-left: 1em;
   margin-top: 0.5em;
 }
-.cuik-suite {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10em;
-  img {
-    margin-left: 2em;
-    border-radius: 10%;
-  }
-  a {
-    display: flex;
-    margin-top: 1em;
-    border-radius: 2.5em;
-    vertical-align: middle;
-    justify-content: center;
-    text-decoration: none;
-    width: 20em;
-    height: 5em;
-    background-color: $themeColor;
-    border-color: $lightGray;
-    border-width: 5px;
-    border-style: solid;
-  }
-  .holder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  p {
-    letter-spacing: 2px;
-    margin-top: 1em;
-    width: fit-content;
-    font-size: 40px;
-    color: $themeColor;
-    font-family: $mainFont;
-    font-weight: bold;
-    text-align: center;
-  }
-}
-.get-link:hover {
-  background-color: $cyan;
-}
 
 .quote {
-  margin-top: 1.5em;
-  display: flex;
+  margin-top: 5.2em;
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  grid-template-rows: 25em 5em;
   align-items: center;
   margin-left: -10%;
   margin-right: -10%;
@@ -76,50 +36,31 @@
   padding: 2em;
   width: 100%;
   img {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
     height: 20em;
   }
   h2 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     letter-spacing: 2px;
     font-family: $mainFont;
     font-weight: 500;
-    margin-left: 2em;
     color: $lightGray;
     font-size: 40px;
   }
-}
-
-.cuik-convertor {
-  margin-top: 30em;
-  display: flex;
-  flex-direction: row;
-  img {
-    margin-left: -1.5em;
-    transform: scale(0.8);
-    border-radius: 10%;
-  }
-  p {
-    letter-spacing: 2px;
-    margin-top: 1em;
-    width: fit-content;
-    font-size: 40px;
-    color: $themeColor;
+  h6 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    color: $lightGray;
     font-family: $mainFont;
-    font-weight: bold;
-    text-align: center;
-  }
-  a {
-    display: flex;
-    margin-top: 2em;
-    border-radius: 2.5em;
-    vertical-align: middle;
-    justify-content: center;
-    text-decoration: none;
-    width: 20em;
-    height: 5em;
-    background-color: $themeColor;
-    border-color: $lightGray;
-    border-width: 5px;
-    border-style: solid;
+    font-weight: 100;
   }
 }
 /* ! ---------------------------------------------------------------------*/
@@ -129,13 +70,6 @@
 /* * Screen width of 768---------------------------------------------------*/
 @media screen and (max-width: 768px) {
   /* * Body ---------------------------------------------------------------*/
-  .footer h6 {
-    margin-left: 1em;
-  }
-  .footer h5 {
-    visibility: hidden;
-    display: none;
-  }
   .page {
     margin-right: 1em;
     margin-left: 1em;
@@ -191,14 +125,6 @@
   /**/
   /**/
   /* * Content -------------------------------------------------------------*/
-  .cuik-suite {
-    margin-top: 0.5em;
-    flex-direction: column;
-  }
-  .cuik-convertor {
-    margin-top: 27em;
-    flex-direction: column;
-  }
   .quote {
     padding-left: 1em;
     flex-direction: column;
@@ -212,35 +138,6 @@
     img {
       margin-top: -4em;
       transform: scale(0.5, 0.5);
-    }
-  }
-  /* ! -----------------------------------------------------------------------*/
-}
-/* ! -----------------------------------------------------------------------*/
-/**/
-/**/
-/**/
-/* * Screen width of 500---------------------------------------------------*/
-@media screen and (max-width: 500px) {
-  /* * Content-------------------------------------------------------------*/
-  .cuik-convertor {
-    margin-top: 40em;
-    flex-direction: column;
-    img {
-      transform: scale(1.2, 0.7);
-      margin-left: 1em;
-      margin-right: 0em;
-    }
-  }
-
-  .cuik-suite {
-    margin-top: 1em;
-    margin-left: 0em;
-    flex-direction: column;
-    img {
-      transform: scale(1.2, 0.7);
-      margin-left: 1em;
-      margin-right: 0em;
     }
   }
   /* ! -----------------------------------------------------------------------*/

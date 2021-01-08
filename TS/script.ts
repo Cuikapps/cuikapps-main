@@ -1,30 +1,32 @@
 let drop = false;
-const burger = document.querySelector(".burger");
-const nav = document.querySelector(".links");
-const navLinks = document.querySelectorAll(".nav-links");
-const burgerTop = document.querySelector("#b-top");
-const burgerMiddle = document.querySelector("#b-middle");
-const burgerBottom = document.querySelector("#b-bottom");
+const burger = document.querySelector(".burger") as HTMLElement;
+const nav = document.querySelector(".links") as HTMLElement;
+const navLinks = document.querySelectorAll(".nav-links") as any;
+const burgerTop = document.querySelector("#b-top") as HTMLElement;
+const burgerMiddle = document.querySelector("#b-middle") as HTMLElement;
+const burgerBottom = document.querySelector("#b-bottom") as HTMLElement;
 
 const navSlide = () => {
   burger.addEventListener("click", () => {
     if (drop === true) {
       nav.style.animation = `dropdown-rev 0.5s ease forwards`;
 
-      navLinks.forEach((link, index) => {
+      navLinks.forEach((link:any) => {
         link.style.animation = `word-fade-rev 1s ease forwards`;
       });
       drop = false;
-    } else if (drop !== true) {
+    } else if (drop === false) {
       nav.style.animation = `dropdown 0.5s ease forwards`;
 
-      navLinks.forEach((link, index) => {
+      navLinks.forEach((link:any) => {
         link.style.animation = `word-fade 1s ease forwards`;
       });
       drop = true;
     }
   });
 };
+
+// * Extra Functions
 function getWidth() {
   return Math.max(
     document.body.scrollWidth,

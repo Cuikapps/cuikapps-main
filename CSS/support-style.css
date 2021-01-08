@@ -175,16 +175,12 @@ h1 {
   /* * Body ---------------------------------------------------------------*/
   .footer {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .footer h6 {
     margin-left: 1em;
-  }
-  .footer h5 {
-    visibility: hidden;
-    display: none;
   }
   .page {
     margin-right: 1em;
