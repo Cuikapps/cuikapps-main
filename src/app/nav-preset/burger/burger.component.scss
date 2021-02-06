@@ -1,0 +1,27 @@
+@use '../../../Theme.scss' as theme;
+
+.burger-holder {
+  display: none;
+  visibility: none;
+}
+
+@media screen and (max-width: 414px) {
+  .burger-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    align-items: center;
+    cursor: pointer;
+    right: 5px;
+    height: 66px;
+    width: 66px;
+    .line {
+      z-index: 6;
+      background-color: theme.$secondary;
+      width: 44px;
+      height: 6px;
+      border-radius: 5px;
+    }
+  }
+}

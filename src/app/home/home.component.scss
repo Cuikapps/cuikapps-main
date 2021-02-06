@@ -1,0 +1,18 @@
+@use '../../_Theme' as theme;
+
+.margin {
+  padding: 0% 10% 0% 10%;
+  margin-top: 30px;
+}
+h1,
+h2 {
+  color: theme.$primary;
+  text-align: center;
+}
+.card-holder {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "Title": "Cuik Suite",
+      "Desc": "A place where you can access all of our tools or add your own with a url.",
+      "Path": "../assets/img/cuiksuite.png",
+      "ImgName": "Cuik Suite",
+      "URL": "https://www.cuikapps.com"
+    },
+    {
+      "Title": "Cuik Convertor",
+      "Desc": "A great unit convertor that is easy to use with great features.",
+      "Path": "../assets/img/cuikconvertor.png",
+      "ImgName": "Cuik Convertor",
+      "URL": "https://cuikconvertor.cuikapps.com"
+    }
+  ]
+}

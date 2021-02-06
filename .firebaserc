@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cuikmain": {
+      "hosting": {
+        "cuikapps-main": [
+          "cuikmain"
+        ]
+      }
+    }
+  }
+}
