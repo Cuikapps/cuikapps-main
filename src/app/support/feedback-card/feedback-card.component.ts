@@ -23,20 +23,25 @@ export class FeedbackCardComponent implements OnInit {
   );
 
   submitResponse() {
-    if (this.app) {
-      this.feedbackCollection.add({
-        title: this.title,
-        feedbackType: this.typeSelect,
-        app: this.app,
-        desc: this.desc,
-      });
+    if (this.title || this.desc || this.app) {
+      if (this.app) {
+        this.feedbackCollection.add({
+          title: this.title,
+          feedbackType: this.typeSelect,
+          app: this.app,
+          desc: this.desc,
+        });
+      } else {
+        this.feedbackCollection.add({
+          title: this.title,
+          feedbackType: this.typeSelect,
+          app: '',
+          desc: this.desc,
+        });
+      }
+      alert('Your feedback has been submitted');
     } else {
-      this.feedbackCollection.add({
-        title: this.title,
-        feedbackType: this.typeSelect,
-        app: '',
-        desc: this.desc,
-      });
+      alert('Please add a title or description');
     }
   }
 
