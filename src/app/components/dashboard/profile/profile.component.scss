@@ -1,0 +1,59 @@
+@use '../../../../Theme' as theme;
+
+:host {
+  width: 100%;
+  box-shadow: inset 7px 7px 10px 2px gray;
+}
+div.base {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2,
+  p {
+    color: theme.$primary;
+    text-align: center;
+  }
+  input[type="text"] {
+    color: theme.$primary;
+    border-radius: 7px;
+    border-style: solid;
+    border-color: theme.$primary;
+    background-color: theme.$secondary;
+    &:focus {
+      outline-color: theme.$tertiary;
+    }
+    &::placeholder {
+      color: inherit;
+    }
+  }
+  button {
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: theme.$secondary;
+    width: 100px;
+    color: theme.$primary;
+    border: 2px solid theme.$primary;
+    &:hover {
+      background-color: theme.$primary;
+      color: theme.$secondary;
+    }
+  }
+  .image-label {
+    border: 2px solid theme.$primary;
+    display: inline-block;
+    color: theme.$primary;
+    border-radius: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+    &:hover {
+      background-color: theme.$primary;
+      color: theme.$secondary;
+    }
+  }
+  input[type="file"] {
+    display: none;
+  }
+}

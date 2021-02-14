@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="form">
+    <input
+      name="title"
+      type="text"
+      ngDefaultControl
+      id="title"
+      placeholder="Title"
+      spellcheck="true"
+      [(ngModel)]="title"
+    />
+    <select
+      name="typeSelect"
+      id="typeSelect"
+      ngDefaultControl
+      [(ngModel)]="typeSelect"
+    >
+      <option value="issue">Issue</option>
+      <option value="suggestion">Suggestion</option>
+      <option value="other">Other</option>
+    </select>
+    <div class="body">
+      <div
+        class="app-selection"
+        *ngIf="typeSelect === 'issue' || typeSelect === 'suggestion'"
+      >
+        <label for="appSelect">Select an app</label><br />
+        <select
+          ngDefaultControl
+          name="appSelect"
+          [(ngModel)]="app"
+          id="appSelect"
+        >
+          <option value="cuikconvertor">Cuik Convertor</option>
+          <option value="cuiksuite">Cuik Suite</option>
+        </select>
+      </div>
+      <br />
+
+      <textarea
+        ngDefaultControl
+        name="desc"
+        spellcheck="true"
+        cols="auto"
+        rows="auto"
+        placeholder="Description"
+        [(ngModel)]="desc"
+      ></textarea>
+      <br />
+      <button (click)="submitResponse()">Submit</button>
+    </div>
+  </div>
+</div>

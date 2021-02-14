@@ -1,0 +1,8 @@
+<div class="card">
+  <div class="text">
+    <h1>{{ pProduct.Title }}</h1>
+    <h6>{{ pProduct.Desc }}</h6>
+    <button (click)="goTo(pProduct.URL)">Go To</button>
+  </div>
+  <img [src]="pProduct.Path" [alt]="pProduct.ImgName" />
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@use './_Theme' as theme;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: theme.$Poppins;
+}
+body,
+html {
+  background-color: theme.$secondary;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 50px;
+  background-color: theme.$primary;
+  color: theme.$secondary;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

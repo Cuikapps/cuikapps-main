@@ -1,0 +1,102 @@
+@use '../../../_Theme' as theme;
+
+div.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  h3 {
+    cursor: pointer;
+    margin-right: 30px;
+    color: theme.$secondary;
+    font-weight: 300;
+  }
+  header {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: theme.$primary;
+    img {
+      height: inherit;
+    }
+    h1 {
+      color: theme.$secondary;
+    }
+  }
+  .page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    position: relative;
+    overflow-x: hidden;
+    .side-bar {
+      box-shadow: inset 0px 5px 10px theme.$primary;
+      width: 200px;
+      z-index: 1;
+      height: 100%;
+      background-color: theme.$tertiary;
+      transition: transform 0.5s ease-in-out;
+      .profile-image {
+        width: inherit;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          border-radius: 50%;
+        }
+      }
+      .line {
+        width: inherit;
+        height: 2px;
+        background-color: theme.$primary;
+      }
+      h3 {
+        text-indent: 10px;
+        transition: text-indent 0.2s ease-in-out;
+        &:hover {
+          text-indent: 20px;
+          background: linear-gradient(to left, theme.$tertiary, theme.$primary);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .open-close-button {
+        z-index: 2;
+        position: absolute;
+        top: 45%;
+        left: 200px;
+        cursor: pointer;
+        font-size: 30px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        color: theme.$secondary;
+        background-color: theme.$primary;
+        border-radius: 0px 5px 5px 0px;
+        span {
+          transition: transform 0.5s ease-in-out;
+        }
+      }
+    }
+    .router-movement {
+      display: flex;
+      position: relative;
+      width: 100%;
+      transition: transform 0.5s ease-in-out, margin 0.5s ease-in-out;
+    }
+  }
+}
+.closed {
+  transform: translateX(-200px);
+  span {
+    transform: rotateZ(180deg);
+  }
+}
+.move-router {
+  transform: translateX(-200px);
+  margin-right: -200px;
+}
