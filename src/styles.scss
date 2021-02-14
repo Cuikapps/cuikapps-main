@@ -6,8 +6,12 @@
   box-sizing: border-box;
   font-family: theme.$Poppins;
 }
-body {
+body,
+html {
   background-color: theme.$secondary;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
 }
 
 .footer {

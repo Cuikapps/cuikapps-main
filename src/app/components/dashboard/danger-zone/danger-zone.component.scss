@@ -1,0 +1,91 @@
+@use '../../../../Theme' as theme;
+
+:host {
+  width: 100%;
+  box-shadow: inset 7px 7px 10px 2px gray;
+}
+
+div.base {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  button {
+    border-color: theme.$danger;
+    width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    border-style: solid;
+    box-shadow: 0px 0px 10px theme.$danger;
+    color: theme.$danger;
+    font-size: 15px;
+    background-color: inherit;
+    &:hover {
+      background-color: theme.$danger;
+      color: theme.$secondary;
+    }
+    &:focus {
+      outline-color: theme.$secondary;
+      outline-style: groove;
+    }
+  }
+  h3 {
+    color: theme.$primary;
+    text-align: center;
+  }
+  .modal {
+    display: none;
+  }
+}
+
+.isModal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 35, 35, 50%);
+  .confirmation {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 350px;
+    max-width: 617px;
+    box-shadow: 0px 0px 25px theme.$danger;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: theme.$secondary;
+    padding: 10px;
+    h1 {
+      cursor: pointer;
+      color: theme.$primary;
+    }
+    h2,
+    p {
+      color: theme.$primary;
+      text-align: center;
+    }
+    input {
+      color: theme.$danger;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: theme.$danger;
+      background-color: theme.$secondary;
+      &:focus {
+        outline-color: theme.$danger;
+      }
+      &::placeholder {
+        color: inherit;
+      }
+    }
+  }
+}

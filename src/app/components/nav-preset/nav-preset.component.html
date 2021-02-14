@@ -1,0 +1,35 @@
+<nav>
+  <img src="../../assets/img/LOGO.png" alt="Logo" />
+  <ul #navList [class]="navToggleClass">
+    <li routerLink="/" [class.active]="pageActive === 'Home'">
+      <a routerLink="/">Home</a>
+    </li>
+    <li routerLink="/support" [class.active]="pageActive === 'Support'">
+      <a routerLink="/support">Support</a>
+    </li>
+    <li
+      on-mouseenter="setActiveRoute()"
+      [routerLink]="activeRoute"
+      (click)="openLogin()"
+    >
+      <span *ngIf="getLoggedIn === false">Login</span>
+      <div
+        class="profile-image"
+        *ngIf="getLoggedIn === true"
+        [ngStyle]="{
+          'background-image':
+            userHasImage === true
+              ? 'url(' + image + ')'
+              : 'url(../../../assets/img/account.png)'
+        }"
+      ></div>
+      <div class="login-panel" *ngIf="loginPanel === true">
+        <ul>
+          <li routerLink="dashboard/profile">Dashboard</li>
+          <li (click)="authService.SignOut()">Log out</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <app-burger (openNavEmitter)="toggleNav($event)"></app-burger>
+</nav>

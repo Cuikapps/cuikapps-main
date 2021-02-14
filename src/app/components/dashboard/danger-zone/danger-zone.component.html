@@ -1,0 +1,19 @@
+<div class="base">
+  <button (click)="openModal()">Remove Account</button>
+  <br />
+  <h3>Note: This action cannot be undone</h3>
+  <div class="modal" [ngClass]="{ isModal: warningModality }" #modal>
+    <div class="confirmation">
+      <h1 (click)="openModal()">X</h1>
+      <h2>Confirm</h2>
+      <p>
+        Since this action cannot be undone please make sure this is the correct
+        account before removing your account.
+      </p>
+      <br />
+      <p>In order to remove your account please type: {{ userEmail }}</p>
+      <input [(ngModel)]="confirmText" type="text" placeholder="Email" />
+      <button (click)="deleteUserAccount()">Confirm</button>
+    </div>
+  </div>
+</div>
