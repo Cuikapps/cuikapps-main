@@ -1,0 +1,17 @@
+<header>
+  <img
+    src="../../../assets/img/LOGO.png"
+    alt="Logo"
+    *ngIf="screenWidth >= 500"
+  />
+  <h1>News</h1>
+  <h3 routerLink="">Go Back</h3>
+</header>
+<main>
+  <cuik-side-nav
+    [hasProfileImage]="false"
+    [titles]="titles"
+    [routes]="titles | toRoute: routeWithChildren:'News'"
+  ></cuik-side-nav>
+  <router-outlet></router-outlet>
+</main>

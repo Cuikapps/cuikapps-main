@@ -1,0 +1,35 @@
+@use '../../../_Theme' as theme;
+
+div.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  header {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: theme.$primary;
+    img {
+      height: inherit;
+    }
+    h1 {
+      color: theme.$secondary;
+    }
+    h3 {
+      cursor: pointer;
+      margin-right: 30px;
+      color: theme.$secondary;
+      font-weight: 300;
+    }
+  }
+  .page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    position: relative;
+    overflow-x: hidden;
+  }
+}

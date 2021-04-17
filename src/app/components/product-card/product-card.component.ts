@@ -2,7 +2,7 @@ import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { IProduct } from '../../Interfaces/IProduct';
 
 @Component({
-  selector: 'app-product-card',
+  selector: 'cuik-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
 })

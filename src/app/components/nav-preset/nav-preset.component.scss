@@ -25,6 +25,7 @@ nav {
       justify-content: center;
       border-bottom: solid 5px theme.$primary;
       padding: 0px 10px 0px 10px;
+      transition: background-color 0.2s ease-in, border 0.2s ease-in;
       &:hover {
         background-color: theme.$tertiary;
         border-bottom: solid 5px theme.$tertiary;

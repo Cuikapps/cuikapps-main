@@ -13,14 +13,14 @@
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
+      "root": "/",
+      "sourceRoot": "src/",
+      "prefix": "cuik",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cuikapps-main",
+            "outputPath": "dist/cuikapps",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,8 +40,8 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -119,5 +119,5 @@
       }
     }
   },
-  "defaultProject": "cuikapps-main"
+  "defaultProject": "cuikapps"
 }

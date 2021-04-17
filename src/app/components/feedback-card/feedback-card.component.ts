@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
@@ -6,7 +6,7 @@ import {
 import { Feedback } from 'src/app/Interfaces/IFeedback';
 
 @Component({
-  selector: 'app-feedback-card',
+  selector: 'cuik-feedback-card',
   templateUrl: './feedback-card.component.html',
   styleUrls: ['./feedback-card.component.scss'],
 })

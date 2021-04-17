@@ -1,35 +1,34 @@
 <nav>
   <img src="../../assets/img/LOGO.png" alt="Logo" />
   <ul #navList [class]="navToggleClass">
-    <li routerLink="/" [class.active]="pageActive === 'Home'">
+    <li routerLink="/" [class.active]="router.isActive('/', true)">
       <a routerLink="/">Home</a>
     </li>
-    <li routerLink="/support" [class.active]="pageActive === 'Support'">
+    <li
+      routerLink="/support"
+      [class.active]="router.isActive('/support', true)"
+    >
       <a routerLink="/support">Support</a>
     </li>
     <li
-      on-mouseenter="setActiveRoute()"
-      [routerLink]="activeRoute"
+      (mouseenter)="setActiveRoute()"
+      [routerLink]="loginPanel ? [] : [activeRoute]"
       (click)="openLogin()"
     >
-      <span *ngIf="getLoggedIn === false">Login</span>
-      <div
-        class="profile-image"
-        *ngIf="getLoggedIn === true"
-        [ngStyle]="{
-          'background-image':
-            userHasImage === true
-              ? 'url(' + image + ')'
-              : 'url(../../../assets/img/account.png)'
-        }"
-      ></div>
-      <div class="login-panel" *ngIf="loginPanel === true">
-        <ul>
-          <li routerLink="dashboard/profile">Dashboard</li>
-          <li (click)="authService.SignOut()">Log out</li>
-        </ul>
+      <div *ngIf="authService.isLoggedIn; else login">
+        <img class="profile-image" [src]="image" />
+        <div class="login-panel" *ngIf="loginPanel">
+          <ul>
+            <li [routerLink]="['/dashboard/profile']">Dashboard</li>
+            <li (click)="authService.SignOut()">Log out</li>
+          </ul>
+        </div>
       </div>
+
+      <ng-template #login>
+        <span>Login</span>
+      </ng-template>
     </li>
   </ul>
-  <app-burger (openNavEmitter)="toggleNav($event)"></app-burger>
+  <cuik-burger (openNavEmitter)="toggleNav($event)"></cuik-burger>
 </nav>

@@ -1,16 +1,14 @@
-<app-nav-preset [pageActive]="pageTypes[0]"></app-nav-preset>
 <div class="page">
   <div class="margin">
     <h1>Great Tools for everyone</h1>
     <h2>And all of these tool are available for free!</h2>
-    <app-region [rHeight]="'10em'"></app-region>
+    <cuik-region [rHeight]="'10em'"></cuik-region>
     <h1>Products</h1>
     <div class="card-holder">
-      <app-product-card
+      <cuik-product-card
         *ngFor="let item of products"
         [pProduct]="item"
-      ></app-product-card>
+      ></cuik-product-card>
     </div>
   </div>
 </div>
-<footer class="footer">Copyright © Cuikapps 2021</footer>

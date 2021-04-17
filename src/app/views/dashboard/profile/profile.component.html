@@ -1,0 +1,19 @@
+<div class="base">
+  <h2>Name</h2>
+  <input type="text" placeholder="Name" [(ngModel)]="displayName" />
+  <button (click)="setDisplayName()">Change</button>
+  <p>You name is: {{ updatedName }}</p>
+  <cuik-region rHeight="50px"></cuik-region>
+
+  <h2>Profile Image</h2>
+  <label for="image-upload" class="image-label">
+    <input
+      #userImageInput
+      type="file"
+      id="image-upload"
+      accept="image/png, image/jpeg"
+    />
+    Choose a profile image
+  </label>
+  <button (click)="setUserImage(userImageInput)">Set</button>
+</div>

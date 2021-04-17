@@ -1,0 +1,50 @@
+{
+  "changelogs": {
+    "cuik-convertor": [
+      {
+        "title": "3/24/2021, V 1.2.1",
+        "changes": ["Quick fix for the history page bug"]
+      },
+      {
+        "title": "3/12/2021, V 1.2",
+        "changes": [
+          "Rewrote the conversion system",
+          "Redid the UI",
+          "Performance improvements by over 30%"
+        ]
+      },
+      {
+        "title": "2/2/2021, V 1.1",
+        "changes": ["Fixed all conversion issues", "Fixed some minor bugs"]
+      },
+      {
+        "title": "1/16/2021, V 1.0",
+        "changes": ["First Release"]
+      }
+    ],
+    "website": [
+      {
+        "title": "1478213737, V 1.1",
+        "changes": [
+          "Minor improvements",
+          "Fixed the log-in/sign-in bug",
+          "Added a news page"
+        ]
+      },
+      {
+        "title": "1/29/2021, V 1.0",
+        "changes": ["First Release"]
+      }
+    ],
+    "news": [
+      {
+        "title": "Apptray has started development",
+        "changes": [
+          "Apptray will be a app where you can access all of our apps and add you own apps with a url",
+          "We have started development and betas versions will be available by 2021 Q2",
+          "We are planning to release it in Q3"
+        ]
+      }
+    ]
+  }
+}

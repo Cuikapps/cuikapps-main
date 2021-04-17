@@ -1,0 +1,11 @@
+<div class="logs">
+  <div class="log" *ngFor="let log of changelogs">
+    <h2>{{ log.title }}</h2>
+    <p *ngFor="let change of log.changes; let i = index">
+      {{ "- " + log.changes[i] }}
+    </p>
+    <br />
+    <hr />
+    <br />
+  </div>
+</div>

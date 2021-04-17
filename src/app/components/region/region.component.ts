@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-region',
+  selector: 'cuik-region',
   templateUrl: './region.component.html',
   styleUrls: ['./region.component.scss'],
 })
