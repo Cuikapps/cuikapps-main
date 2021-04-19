@@ -18,22 +18,20 @@ export class FeedbackCardComponent implements OnInit {
 
   constructor(private firetore: AngularFirestore) {}
 
-  feedbackCollection: AngularFirestoreCollection<Feedback> = this.firetore.collection(
+  feedbackCollection: AngularFirestoreCollection<any> = this.firetore.collection(
     'feedback'
   );
 
   submitResponse() {
-    if (this.title || this.desc || this.app) {
+    if (this.title && this.desc) {
       if (this.app) {
-        this.feedbackCollection.add({
-          title: this.title,
+        this.feedbackCollection.doc(this.title).set({
           feedbackType: this.typeSelect,
           app: this.app,
           desc: this.desc,
         });
       } else {
-        this.feedbackCollection.add({
-          title: this.title,
+        this.feedbackCollection.doc(this.title).set({
           feedbackType: this.typeSelect,
           app: '',
           desc: this.desc,
@@ -41,7 +39,7 @@ export class FeedbackCardComponent implements OnInit {
       }
       alert('Your feedback has been submitted');
     } else {
-      alert('Please add a title or description');
+      alert('Please add a title and description');
     }
   }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import { SignInComponent } from './views/sign-in/sign-in.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
@@ -10,6 +10,12 @@ import { SupportComponent } from './views/support/support.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'register-user', component: SignUpComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: 'support', component: SupportComponent },
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -22,12 +28,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/news/news.module').then((m) => m.NewsModule),
   },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: '404', component: PageNotFoundComponent },
-  { path: 'support', component: SupportComponent },
+
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

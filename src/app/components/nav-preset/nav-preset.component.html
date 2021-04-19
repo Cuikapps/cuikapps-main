@@ -1,13 +1,14 @@
 <nav>
   <img src="../../assets/img/LOGO.png" alt="Logo" />
   <ul #navList [class]="navToggleClass">
-    <li routerLink="/" [class.active]="router.isActive('/', true)">
+    <li
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <a routerLink="/">Home</a>
     </li>
-    <li
-      routerLink="/support"
-      [class.active]="router.isActive('/support', true)"
-    >
+    <li routerLink="/support" routerLinkActive="active">
       <a routerLink="/support">Support</a>
     </li>
     <li
@@ -17,9 +18,10 @@
     >
       <div *ngIf="authService.isLoggedIn; else login">
         <img class="profile-image" [src]="image" />
-        <div class="login-panel" *ngIf="loginPanel">
+        <div class="login-panel" [class.hidden]="!loginPanel">
           <ul>
-            <li [routerLink]="['/dashboard/profile']">Dashboard</li>
+            <li (click)="navigateToDash()">Dashboard</li>
+
             <li (click)="authService.SignOut()">Log out</li>
           </ul>
         </div>

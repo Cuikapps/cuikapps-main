@@ -14,23 +14,23 @@ export class SideNavComponent implements OnInit {
   @Input('routes') sideNavRoutes!: string[];
   @Input() hasProfileImage!: boolean;
 
-  image!: string;
+  image: string = '../../../assets/img/account.png';
   sideNavToggle: boolean = false;
 
   ngOnInit(): void {
-    if (this.hasProfileImage && this.authService.PhotoURL != '') {
-      this.image = this.authService.PhotoURL;
-    } else {
-      this.image = '../../../assets/img/account.png';
-    }
-
     if (this.screenWidth <= 500) {
       this.sideNavToggle = !this.sideNavToggle;
     }
   }
 
+  ngAfterContentChecked() {
+    if (this.authService.PhotoURL) {
+      this.image = this.authService.PhotoURL;
+    } else this.image = '../../../assets/img/account.png';
+  }
+
   updateImage() {
-    if (this.authService.PhotoURL != '') this.image = this.authService.PhotoURL;
+    if (this.authService.PhotoURL) this.image = this.authService.PhotoURL;
   }
 
   toggleSideNav() {

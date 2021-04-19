@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { FirestorageService } from '../../../services/firestorage.service';
 
@@ -7,25 +12,22 @@ import { FirestorageService } from '../../../services/firestorage.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements AfterContentChecked {
   constructor(
     public authService: AuthService,
     private storageService: FirestorageService
   ) {}
 
   displayName: string = '';
-  updatedName: string = '';
+  updatedName: string = this.authService.DisplayName;
 
-  ngOnInit(): void {
+  ngAfterContentChecked(): void {
     if (this.authService.DisplayName != '')
       this.updatedName = this.authService.DisplayName;
   }
 
   setDisplayName() {
     this.authService.DisplayName = this.displayName;
-    alert(
-      'You display name has been changed, but to see it you must refresh the browser.'
-    );
   }
   setUserImage(input: HTMLInputElement) {
     if (input.files) {

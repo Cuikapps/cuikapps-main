@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,8 @@ import { AuthService } from './auth.service';
 export class FirestorageService {
   constructor(
     private afStorage: AngularFireStorage,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   uploadUserImage(file: File) {
@@ -26,12 +28,5 @@ export class FirestorageService {
           this.authService.PhotoURL = url;
         });
     }
-  }
-
-  create(path: string, file: any) {
-    this.afStorage.upload(path, file);
-  }
-  delete(path: string) {
-    this.afStorage.ref(path).delete();
   }
 }

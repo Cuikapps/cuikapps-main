@@ -35,7 +35,6 @@ export class AuthService {
         if (user.emailVerified) this.isVerified = true;
         else this.isVerified = false;
         this.SetDocData();
-        console.log('AuthState has changed');
       } else {
         this.isLoggedIn = false;
         localStorage.removeItem('user');
@@ -45,15 +44,13 @@ export class AuthService {
       if (userData && this.isLoggedIn) {
         this.userState = userData;
         this._createStoreData(userData);
-        
         this.SetDocData();
-        console.log('New user data');
       } else this.userState = null;
     });
   }
 
   private _createStoreData(data: firebase.User) {
-    if (data.displayName && data.email && data.emailVerified && data.photoURL) {
+    if (data.displayName && data.email && data.emailVerified) {
       this.storeData = {
         uid: data.uid,
         displayName: data.displayName,
@@ -125,10 +122,7 @@ export class AuthService {
 
   SetDocData(): void {
     if (this.storeData && this.userState) {
-      const userRef: AngularFirestoreDocument<any> = this.afs
-        .collection('users')
-        .doc(this.userState.uid);
-      userRef.set(this.storeData, {
+      this.afs.collection('users').doc(this.userState.uid).set(this.storeData, {
         merge: true,
       });
     }
@@ -198,14 +192,14 @@ export class AuthService {
     });
   }
 
-  get PhotoURL() {
+  get PhotoURL(): string | null {
     if (this.userState && this.userState.photoURL)
       return this.userState.photoURL;
-    else return '';
+    else return null;
   }
-  set PhotoURL(v: string) {
+  set PhotoURL(v: string | null) {
     this.afAuth.currentUser.then((user) => {
-      if (user) user?.updateProfile({ photoURL: v });
+      if (user) user.updateProfile({ photoURL: v });
       if (this.userState) {
         const userRef: AngularFirestoreDocument<any> = this.afs.doc(
           `users/${this.userState.uid}`
