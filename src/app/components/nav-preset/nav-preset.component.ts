@@ -41,6 +41,7 @@ export class NavPresetComponent implements OnInit, AfterContentChecked {
     }
   }
 
+  /** Return whether the logged in user has a profile image */
   get UserHasImage() {
     if (this.authService.isLoggedIn) {
       if (this.authService.PhotoURL) return true;
@@ -56,11 +57,13 @@ export class NavPresetComponent implements OnInit, AfterContentChecked {
       this.activeRoute = '/sign-in';
     }
   }
+
   openLogin(): void {
     if (this.authService.isLoggedIn) {
       this.loginPanel = !this.loginPanel;
     } else return;
   }
+
   navigateToDash() {
     this.router
       .navigate(['/dashboard/profile'])

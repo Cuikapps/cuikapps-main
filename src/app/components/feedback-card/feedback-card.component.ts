@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/firestore';
 import { Feedback } from 'src/app/Interfaces/IFeedback';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'cuik-feedback-card',
@@ -16,28 +13,32 @@ export class FeedbackCardComponent implements OnInit {
   app!: string;
   desc!: string;
 
-  constructor(private firetore: AngularFirestore) {}
-
-  feedbackCollection: AngularFirestoreCollection<any> = this.firetore.collection(
-    'feedback'
-  );
+  constructor(private store: FirestoreService) {}
 
   submitResponse() {
     if (this.title && this.desc) {
       if (this.app) {
-        this.feedbackCollection.doc(this.title).set({
-          feedbackType: this.typeSelect,
-          app: this.app,
-          desc: this.desc,
-        });
+        this.store.create<Feedback>(
+          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
+          {
+            feedbackType: this.typeSelect,
+            app: this.app,
+            desc: this.desc,
+          },
+          false
+        );
       } else {
-        this.feedbackCollection.doc(this.title).set({
-          feedbackType: this.typeSelect,
-          app: '',
-          desc: this.desc,
-        });
+        this.store.create<Feedback>(
+          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
+          {
+            feedbackType: this.typeSelect,
+            app: this.app,
+            desc: this.desc,
+          },
+          false
+        );
       }
-      alert('Your feedback has been submitted');
+      alert('Your feedback has been submitted, thank you for the feedback');
     } else {
       alert('Please add a title and description');
     }

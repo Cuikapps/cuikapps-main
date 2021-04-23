@@ -20,6 +20,7 @@ import { SignInComponent } from './views/sign-in/sign-in.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { FirestoreService } from './services/firestore.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
     ComponentsModule,
     BrowserModule,
   ],
-  providers: [AuthService, FirestorageService, LogService],
+  providers: [AuthService, FirestorageService, LogService, FirestoreService],
   bootstrap: [CuikComponent],
 })
 export class CuikModule {}

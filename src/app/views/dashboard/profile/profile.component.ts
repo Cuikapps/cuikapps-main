@@ -1,9 +1,4 @@
-import {
-  AfterContentChecked,
-  AfterContentInit,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { AfterContentChecked, Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { FirestorageService } from '../../../services/firestorage.service';
 
@@ -18,7 +13,7 @@ export class ProfileComponent implements AfterContentChecked {
     private storageService: FirestorageService
   ) {}
 
-  displayName: string = '';
+  displayNameInput: string = '';
   updatedName: string = this.authService.DisplayName;
 
   ngAfterContentChecked(): void {
@@ -27,7 +22,7 @@ export class ProfileComponent implements AfterContentChecked {
   }
 
   setDisplayName() {
-    this.authService.DisplayName = this.displayName;
+    this.authService.DisplayName = this.displayNameInput;
   }
   setUserImage(input: HTMLInputElement) {
     if (input.files) {

@@ -2,6 +2,10 @@
   "changelogs": {
     "cuik-convertor": [
       {
+        "title": "4/23/2021, V 1.2.2",
+        "changes": ["Added a search bar", "Added a tutorial for new users"]
+      },
+      {
         "title": "3/24/2021, V 1.2.1",
         "changes": ["Quick fix for the history page bug"]
       },
