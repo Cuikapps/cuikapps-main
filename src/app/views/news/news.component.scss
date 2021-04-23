@@ -1,0 +1,32 @@
+@use '../../../Theme' as theme;
+
+header {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: theme.$primary;
+  img {
+    height: inherit;
+  }
+  h1 {
+    margin-left: 20px;
+    color: theme.$secondary;
+  }
+  h3 {
+    cursor: pointer;
+    margin-right: 30px;
+    color: theme.$secondary;
+    font-weight: 300;
+  }
+}
+main {
+  display: flex;
+  width: 100vw;
+  height: calc(100% - 66px);
+  cuik-side-nav {
+    position: absolute;
+    bottom: 0px;
+    top: 66px;
+  }
+}

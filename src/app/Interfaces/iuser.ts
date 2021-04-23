@@ -1,7 +1,7 @@
 export interface IUser {
   uid: string;
-  email: string;
+  photoURL: string | null;
   displayName: string;
-  photoURL: string;
+  email: string;
   emailVerified: boolean;
 }

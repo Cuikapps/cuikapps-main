@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyBYRdWwDcn4UmH-9R-JPCfqmhve9wrzmkQ',
-    authDomain: 'cuikmain.firebaseapp.com',
-    databaseURL: 'https://cuikmain-default-rtdb.firebaseio.com',
-    projectId: 'cuikmain',
-    storageBucket: 'cuikmain.appspot.com',
-    messagingSenderId: '29878665467',
-    appId: '1:29878665467:web:37d8856b840ad49b39f05e',
-    measurementId: 'G-S87GRDMSLX',
+    apiKey: 'AIzaSyA6jV-NqU4Xmlu1p272LN6o4anjNnZgkeE',
+    authDomain: 'cuikapps.firebaseapp.com',
+    databaseURL: 'https://cuikapps-users.firebaseio.com',
+    projectId: 'cuikapps',
+    storageBucket: 'cuikapps.appspot.com',
+    messagingSenderId: '256764122512',
+    appId: '1:256764122512:web:3660eb49b1ae3131fb0f15',
+    measurementId: 'G-01QT5S16K8',
   },
 };
 

@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-support',
+  selector: 'cuik-support',
   templateUrl: './support.component.html',
   styleUrls: ['./support.component.scss'],
 })
 export class SupportComponent implements OnInit {
-  pageTypes: string[] = ['Support'];
-
   constructor() {}
 
   ngOnInit(): void {}

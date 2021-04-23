@@ -1,12 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
 import { Feedback } from 'src/app/Interfaces/IFeedback';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
-  selector: 'app-feedback-card',
+  selector: 'cuik-feedback-card',
   templateUrl: './feedback-card.component.html',
   styleUrls: ['./feedback-card.component.scss'],
 })
@@ -16,32 +13,34 @@ export class FeedbackCardComponent implements OnInit {
   app!: string;
   desc!: string;
 
-  constructor(private firetore: AngularFirestore) {}
-
-  feedbackCollection: AngularFirestoreCollection<Feedback> = this.firetore.collection(
-    'feedback'
-  );
+  constructor(private store: FirestoreService) {}
 
   submitResponse() {
-    if (this.title || this.desc || this.app) {
+    if (this.title && this.desc) {
       if (this.app) {
-        this.feedbackCollection.add({
-          title: this.title,
-          feedbackType: this.typeSelect,
-          app: this.app,
-          desc: this.desc,
-        });
+        this.store.create<Feedback>(
+          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
+          {
+            feedbackType: this.typeSelect,
+            app: this.app,
+            desc: this.desc,
+          },
+          false
+        );
       } else {
-        this.feedbackCollection.add({
-          title: this.title,
-          feedbackType: this.typeSelect,
-          app: '',
-          desc: this.desc,
-        });
+        this.store.create<Feedback>(
+          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
+          {
+            feedbackType: this.typeSelect,
+            app: this.app,
+            desc: this.desc,
+          },
+          false
+        );
       }
-      alert('Your feedback has been submitted');
+      alert('Your feedback has been submitted, thank you for the feedback');
     } else {
-      alert('Please add a title or description');
+      alert('Please add a title and description');
     }
   }
 

@@ -1,0 +1,19 @@
+<div class="main">
+  <header>
+    <img
+      src="../../../assets/img/LOGO.png"
+      alt="Logo"
+      *ngIf="screenWidth >= 500"
+    />
+    <h1>Dashboard</h1>
+    <h3 routerLink="">Go Back</h3>
+  </header>
+  <div class="page">
+    <cuik-side-nav
+      [hasProfileImage]="true"
+      [routes]="titles | toRoute: false"
+      [titles]="titles"
+    ></cuik-side-nav>
+    <router-outlet></router-outlet>
+  </div>
+</div>

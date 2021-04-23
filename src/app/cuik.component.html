@@ -1,0 +1,11 @@
+<cuik-nav-preset
+  *ngIf="
+    this.router.isActive('/support', true) || this.router.isActive('/', true)
+  "
+></cuik-nav-preset>
+<router-outlet></router-outlet>
+<cuik-footer
+  *ngIf="
+    this.router.isActive('/support', true) || this.router.isActive('/', true)
+  "
+></cuik-footer>

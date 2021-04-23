@@ -25,6 +25,7 @@ nav {
       justify-content: center;
       border-bottom: solid 5px theme.$primary;
       padding: 0px 10px 0px 10px;
+      transition: background-color 0.2s ease-in, border 0.2s ease-in;
       &:hover {
         background-color: theme.$tertiary;
         border-bottom: solid 5px theme.$tertiary;
@@ -55,11 +56,16 @@ nav {
         left: calc(100% - 141px);
         height: 110px;
         right: -84px;
+        z-index: 1;
         align-items: center;
         padding-bottom: 10px;
         border-radius: 0px 0px 10px 10px;
 
         background-color: theme.$primary;
+        &.hidden {
+          top: -100px;
+          z-index: -1;
+        }
         ul {
           position: relative;
           display: flex;

@@ -1,0 +1,18 @@
+<div class="side-bar" [ngClass]="{ closed: sideNavToggle }">
+  <div class="profile-image" *ngIf="hasProfileImage">
+    <img [src]="image" alt="Profile Image" width="66px" />
+  </div>
+  <div class="line"></div>
+  <h3
+    *ngFor="let title of sideNavTitles; let i = index"
+    [routerLink]="sideNavRoutes[i]"
+    [ngClass]="{
+      'active-nav': this.router.url.includes(sideNavRoutes[i].replace('./', ''))
+    }"
+  >
+    {{ title }}
+  </h3>
+  <div class="open-close-button" (click)="toggleSideNav()">
+    <p><</p>
+  </div>
+</div>

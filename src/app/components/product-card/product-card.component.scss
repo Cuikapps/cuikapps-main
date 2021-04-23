@@ -40,6 +40,7 @@
     border-radius: 40px;
     background-color: theme.$primary;
     color: theme.$secondary;
+    transition: background-color .2s ease-in;
     &:hover {
       background-color: theme.$tertiary;
     }

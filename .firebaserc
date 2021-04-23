@@ -1,11 +1,6 @@
 {
-  "targets": {
-    "cuikmain": {
-      "hosting": {
-        "cuikapps-main": [
-          "cuikmain"
-        ]
-      }
-    }
+  "projects": {
+    "default": "cuikapps",
+    "production": "cuikapps"
   }
 }
