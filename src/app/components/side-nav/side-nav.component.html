@@ -5,9 +5,11 @@
   <div class="line"></div>
   <h3
     *ngFor="let title of sideNavTitles; let i = index"
-    [routerLink]="sideNavRoutes[i]"
+    [routerLink]="useIndex ? '' + i : sideNavRoutes[i]"
     [ngClass]="{
-      'active-nav': this.router.url.includes(sideNavRoutes[i].replace('./', ''))
+      'active-nav': this.router.url.includes(
+        useIndex ? '' + i : sideNavRoutes[i].replace('./', '')
+      )
     }"
   >
     {{ title }}

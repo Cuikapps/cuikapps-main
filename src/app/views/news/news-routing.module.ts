@@ -2,18 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NewsComponent } from './news.component';
-import { WebsiteComponent } from './website/website.component';
-import { CuikconvertorComponent } from './cuikconvertor/cuikconvertor.component';
-import { CompanyNewsComponent } from './company-news/company-news.component';
+import { ChangeLogComponent } from './change-log/change-log.component';
 
 const routes: Routes = [
   {
     path: '',
     component: NewsComponent,
     children: [
-      { path: 'main', component: CompanyNewsComponent },
-      { path: 'website', component: WebsiteComponent },
-      { path: 'cuikconvertor', component: CuikconvertorComponent },
+      { path: ':changelog', component: ChangeLogComponent },
       { path: '', redirectTo: 'main', pathMatch: 'full' },
     ],
   },

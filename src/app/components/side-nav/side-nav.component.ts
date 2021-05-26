@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -7,15 +7,18 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
 })
-export class SideNavComponent implements OnInit {
+export class SideNavComponent implements OnInit, AfterContentChecked {
   constructor(public router: Router, private authService: AuthService) {}
 
   @Input('titles') sideNavTitles!: string[];
   @Input('routes') sideNavRoutes!: string[];
-  @Input() hasProfileImage!: boolean;
+  @Input() hasProfileImage = false;
 
-  image: string = '../../../assets/img/account.png';
-  sideNavToggle: boolean = false;
+  // Whether to send to name of route or index.
+  @Input() useIndex = false;
+
+  image = '../../../assets/img/account.png';
+  sideNavToggle = false;
 
   ngOnInit(): void {
     if (this.screenWidth <= 500) {
@@ -23,41 +26,25 @@ export class SideNavComponent implements OnInit {
     }
   }
 
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     if (this.authService.PhotoURL) {
       this.image = this.authService.PhotoURL;
-    } else this.image = '../../../assets/img/account.png';
+    } else {
+      this.image = '../../../assets/img/account.png';
+    }
   }
 
-  updateImage() {
-    if (this.authService.PhotoURL) this.image = this.authService.PhotoURL;
+  updateImage(): void {
+    if (this.authService.PhotoURL) {
+      this.image = this.authService.PhotoURL;
+    }
   }
 
-  toggleSideNav() {
+  toggleSideNav(): void {
     this.sideNavToggle = !this.sideNavToggle;
   }
 
-  checkActiveRoute(routes: string[], index: number): boolean {
-    if (
-      this.router.url.includes(routes[index].replace('./', '')) &&
-      ((): boolean => {
-        for (let i = 1; i < routes.length; i++) {
-          if (
-            this.router.url.includes(
-              routes[i].replace('../', '').replace('./', '')
-            )
-          )
-            return true;
-          else return false;
-        }
-        return true;
-      })
-    )
-      return true;
-    return false;
-  }
-
-  get screenWidth() {
+  get screenWidth(): number {
     return window.innerWidth;
   }
 }
