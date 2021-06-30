@@ -2,15 +2,22 @@
   "changelogs": [
     [
       {
+        "title": "Apptray beta is closed",
+        "changes": [
+          "Apptray has reached closed beta and in a completely usable app.",
+          "You should still expect bugs."
+        ]
+      },
+      {
         "title": "Apptray beta is released",
-        "changes": ["The app store and edit mode are still in development"]
+        "changes": ["The app store and edit mode are still in development."]
       },
       {
         "title": "Apptray has started development",
         "changes": [
-          "Apptray will be a app where you can access all of our apps and add you own apps with a url",
-          "We have started development and beta versions will be available by 2021 Q2",
-          "We are planning to release it in Q3"
+          "Apptray will be a app where you can access all of our apps and add you own apps with a url.",
+          "We have started development and beta versions will be available by 2021 Q2.",
+          "We are planning to release it in Q3."
         ]
       }
     ],
@@ -57,6 +64,10 @@
     ],
 
     [
+      {
+        "title": "6/30/2021, V 1.0",
+        "changes": ["First Release"]
+      },
       {
         "title": "5/18/2021, V 0.1",
         "changes": ["Beta Release"]
