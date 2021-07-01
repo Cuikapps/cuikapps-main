@@ -24,6 +24,12 @@
 
     [
       {
+        "title": "7/1/2021, V 1.1.1",
+        "changes": [
+          "Changed New tab opening when on any product to use the same tab."
+        ]
+      },
+      {
         "title": "4/18/2021, V 1.1",
         "changes": [
           "Minor improvements",
@@ -64,6 +70,12 @@
     ],
 
     [
+      {
+        "title": "7/1/2021, V 1.0.1",
+        "changes": [
+          "Changed New tab opening when clicking the logo to go to your apptray home."
+        ]
+      },
       {
         "title": "6/30/2021, V 1.0",
         "changes": ["First Release"]
