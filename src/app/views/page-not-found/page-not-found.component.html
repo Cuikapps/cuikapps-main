@@ -1,7 +1,20 @@
 <div class="main">
   <div class="card">
-    <h3>This page does not exist</h3>
-    <p>This could have been removed or the link is invalid</p>
-    <a routerLink="">Go back <--</a>
+    <div class="back-btn">
+      <svg
+        [routerLink]="['/']"
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke-width="4"
+        stroke-linecap="round"
+      >
+        <line x1="40%" y1="10%" x2="10%" y2="50%"></line>
+        <line x1="10%" y1="50%" x2="40%" y2="90%"></line>
+        <line x1="10%" y1="50%" x2="90%" y2="50%"></line>
+      </svg>
+    </div>
+    <h2>This page does not exist</h2>
+    <p>This page could have been removed or the link is invalid</p>
   </div>
 </div>

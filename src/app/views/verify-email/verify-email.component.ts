@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./verify-email.component.scss'],
 })
 export class VerifyEmailComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {
     alert('You must refresh the page for your account to be created.');

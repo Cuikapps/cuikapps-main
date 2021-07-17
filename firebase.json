@@ -7,12 +7,8 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "dist/cuikapps",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "public": "dist/static",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

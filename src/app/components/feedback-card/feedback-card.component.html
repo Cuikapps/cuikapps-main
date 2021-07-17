@@ -1,4 +1,5 @@
 <div class="card">
+  <h2>Feedback</h2>
   <div class="form">
     <input
       name="title"
@@ -24,26 +25,21 @@
         class="cuik-selection"
         *ngIf="typeSelect === 'issue' || typeSelect === 'suggestion'"
       >
-        <label for="appSelect">Select an cuik</label><br />
-        <select
-          ngDefaultControl
-          name="appSelect"
-          [(ngModel)]="app"
-          id="appSelect"
-        >
+        <h3>Select an app for feedback:</h3>
+        <select ngDefaultControl [(ngModel)]="app" id="appSelect">
           <option value="cuikconvertor">Cuik Convertor</option>
-          <option value="cuiksuite">Cuik Suite</option>
+          <option value="apptray">Apptray</option>
         </select>
       </div>
       <br />
 
+      <h4>Description</h4>
       <textarea
         ngDefaultControl
         name="desc"
         spellcheck="true"
         cols="auto"
         rows="auto"
-        placeholder="Description"
         [(ngModel)]="desc"
       ></textarea>
       <br />

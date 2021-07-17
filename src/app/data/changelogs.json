@@ -4,7 +4,7 @@
       {
         "title": "Apptray beta is closed",
         "changes": [
-          "Apptray has reached closed beta and in a completely usable app.",
+          "Apptray has reached closed beta and is a completely usable app.",
           "You should still expect bugs."
         ]
       },
@@ -23,6 +23,10 @@
     ],
 
     [
+      {
+        "title": "7/8/2021, V 1.2",
+        "changes": ["UI update for some pages"]
+      },
       {
         "title": "7/1/2021, V 1.1.1",
         "changes": [
@@ -70,6 +74,14 @@
     ],
 
     [
+      {
+        "title": "7/17/2021, V 1.2",
+        "changes": [
+          "The search bar is auto selected now.",
+          "Better app icons now.",
+          "Removed to feature to have multiple images for apps."
+        ]
+      },
       {
         "title": "7/1/2021, V 1.0.1",
         "changes": [

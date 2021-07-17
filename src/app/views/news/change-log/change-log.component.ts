@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IChangeLogs } from 'src/app/Interfaces/IChangeLog';
 
-import { changelogs as changelogsJSON } from '../../../data/changelogs.json';
+import changelogsJSON from '../../../data/changelogs.json';
 import { TITLES } from '../news.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class ChangeLogComponent implements OnInit, OnDestroy {
   changelogs!: IChangeLogs;
   title!: string;
 
-  typedChangeLogs: IChangeLogs[] = changelogsJSON;
+  typedChangeLogs: IChangeLogs[] = changelogsJSON.changelogs;
 
   subscriptions: Subscription[] = [];
 
