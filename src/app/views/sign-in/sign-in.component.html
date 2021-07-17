@@ -1,15 +1,22 @@
 <div class="main">
   <div class="card">
-    <span style="font-size: 20px" routerLink="">X</span>
-    <h3>Sign In</h3>
+    <div class="back-btn">
+      <svg
+        [routerLink]="['/']"
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke-width="4"
+        stroke-linecap="round"
+      >
+        <line x1="40%" y1="10%" x2="10%" y2="50%"></line>
+        <line x1="10%" y1="50%" x2="40%" y2="90%"></line>
+        <line x1="10%" y1="50%" x2="90%" y2="50%"></line>
+      </svg>
+    </div>
+    <h2>Sign In</h2>
     <div class="formGroup">
-      <input
-        type="text"
-        class="formControl"
-        placeholder="Email"
-        #userEmail
-        required
-      />
+      <input type="email" class="formControl" placeholder="Email" #userEmail />
     </div>
 
     <div class="formGroup">
@@ -18,7 +25,6 @@
         class="formControl"
         placeholder="Password"
         #userPassword
-        required
       />
     </div>
     <div class="formGroup">
@@ -28,6 +34,12 @@
         value="Log in"
         (click)="authService.SignIn(userEmail.value, userPassword.value)"
       />
+      <input
+        type="button"
+        class="sign-up-btn"
+        value="Create Account"
+        (click)="router.navigate(['/register-user'])"
+      />
     </div>
     <div class="formGroup">
       <span class="or"><span class="orInner">Or</span></span>
@@ -35,7 +47,6 @@
 
     <!-- Calling GoogleAuth Api from AuthService -->
     <div class="formGroup">
-      Sign in with:
       <button
         type="button"
         class="googleBtn"
@@ -46,18 +57,8 @@
       </button>
     </div>
 
-    <div class="forgotPassword">
+    <div class="formGroup">
       <span routerLink="/forgot-password">Forgot Password?</span>
-    </div>
-    <div class="redirectToLogin">
-      <span
-        >Don't have an account?<span
-          class="redirect"
-          routerLink="/register-user"
-        >
-          Sign Up</span
-        ></span
-      >
     </div>
   </div>
 </div>

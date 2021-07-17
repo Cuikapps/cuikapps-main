@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+export const TITLES: string[] = [
+  'Main',
+  'Website',
+  'Cuik Convertor',
+  'Apptray',
+];
+
 @Component({
   selector: 'cuik-news',
   templateUrl: './news.component.html',
@@ -8,12 +15,12 @@ import { Component, OnInit } from '@angular/core';
 export class NewsComponent implements OnInit {
   constructor() {}
 
-  titles: string[] = ['Main', 'Website', 'Cuik Convertor'];
-  routeWithChildren: boolean = false;
+  titles = TITLES;
+  routeWithChildren = false;
 
   ngOnInit(): void {}
 
-  get screenWidth() {
+  get screenWidth(): number {
     return window.innerWidth;
   }
 }

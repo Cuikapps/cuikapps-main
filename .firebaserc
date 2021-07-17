@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "cuikapps",
-    "production": "cuikapps"
+    "production": "cuikapps",
+    "cuikapps": "cuikapps"
   }
 }

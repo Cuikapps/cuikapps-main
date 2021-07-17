@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../../data/product.json';
+import productsInfo from '../../data/product.json';
 import { IProduct } from '../../Interfaces/IProduct';
 
 @Component({
@@ -8,7 +8,7 @@ import { IProduct } from '../../Interfaces/IProduct';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  products: IProduct[] = products;
+  products: IProduct[] = productsInfo.products;
 
   constructor() {}
 

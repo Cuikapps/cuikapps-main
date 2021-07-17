@@ -11,11 +11,11 @@ export class ProductCardComponent implements OnInit, AfterViewInit {
 
   @Input() pProduct!: IProduct;
 
-  goTo(url: string) {
-    window.open(url, '_blank');
+  goTo(url: string): void {
+    window.open(url, '_top');
   }
 
   ngOnInit(): void {}
 
-  ngAfterViewInit() {}
+  ngAfterViewInit(): void {}
 }

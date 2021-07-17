@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cuikapps-main": {
+    "cuikapps": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,10 +25,15 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -40,8 +45,6 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": true,
-              "namedChunks": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -58,23 +61,24 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cuikapps-main:build"
+            "browserTarget": "cuikapps:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cuikapps-main:build:production"
+              "browserTarget": "cuikapps:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cuikapps-main:build"
+            "browserTarget": "cuikapps:build"
           }
         },
         "test": {

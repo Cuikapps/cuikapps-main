@@ -10,7 +10,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the cuik', () => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(CuikComponent);
     const cuik = fixture.componentInstance;
     expect(cuik).toBeTruthy();
@@ -20,14 +20,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(CuikComponent);
     const cuik = fixture.componentInstance;
     expect(cuik.title).toEqual('cuikapps-main');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(CuikComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'cuikapps-main cuik is running!'
-    );
   });
 });

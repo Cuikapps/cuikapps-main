@@ -1,7 +1,20 @@
 <div class="main">
   <div class="card">
-    <span style="font-size: 20px" routerLink="">X</span>
-    <h3>Thank You for Registering</h3>
+    <div class="back-btn">
+      <svg
+        [routerLink]="['/']"
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke-width="4"
+        stroke-linecap="round"
+      >
+        <line x1="40%" y1="10%" x2="10%" y2="50%"></line>
+        <line x1="10%" y1="50%" x2="40%" y2="90%"></line>
+        <line x1="10%" y1="50%" x2="90%" y2="50%"></line>
+      </svg>
+    </div>
+    <h2>Thank You for Registering</h2>
 
     <div class="formGroup" *ngIf="authService.isLoggedIn">
       <p class="text-center">
@@ -22,15 +35,15 @@
         class="verification-btn"
         (click)="authService.SendVerificationMail()"
       >
-        <i class="fas fa-redo-alt"></i>
         Resend Verification Email
       </button>
-    </div>
-    <div class="redirectToLogin">
-      <span
-        >Go back to ?
-        <span class="redirect" routerLink="/sign-in">Log In</span></span
+      <button
+        type="button"
+        class="verification-btn"
+        (click)="router.navigate(['/sign-in'])"
       >
+        Sign In
+      </button>
     </div>
   </div>
 </div>

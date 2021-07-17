@@ -22,6 +22,8 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { FirestoreService } from './services/firestore.service';
 
+import { ScullyLibModule } from '@scullyio/ng-lib';
+
 @NgModule({
   declarations: [
     CuikComponent,
@@ -41,6 +43,7 @@ import { FirestoreService } from './services/firestore.service';
     CuikRoutingModule,
     ComponentsModule,
     BrowserModule,
+    ScullyLibModule,
   ],
   providers: [AuthService, FirestorageService, LogService, FirestoreService],
   bootstrap: [CuikComponent],
