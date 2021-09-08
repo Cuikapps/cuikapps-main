@@ -30,9 +30,9 @@
     <div class="formGroup">
       <input
         type="button"
-        class="sign-in-btn"
-        value="Log in"
-        (click)="authService.SignIn(userEmail.value, userPassword.value)"
+        class="sign-in-btn" 
+        value="Sign In"
+        (click)="authService.signIn(userEmail.value, userPassword.value)"
       />
       <input
         type="button"
@@ -43,18 +43,6 @@
     </div>
     <div class="formGroup">
       <span class="or"><span class="orInner">Or</span></span>
-    </div>
-
-    <!-- Calling GoogleAuth Api from AuthService -->
-    <div class="formGroup">
-      <button
-        type="button"
-        class="googleBtn"
-        (click)="authService.GoogleAuth()"
-      >
-        <img src="../../../assets/img/GoogleLogo.png" alt="Google Logo" />
-        <span>Google</span>
-      </button>
     </div>
 
     <div class="formGroup">

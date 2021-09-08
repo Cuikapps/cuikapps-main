@@ -1,11 +1,19 @@
-<cuik-nav-preset
-  *ngIf="
-    this.router.isActive('/support', true) || this.router.isActive('/', true)
-  "
-></cuik-nav-preset>
-<router-outlet></router-outlet>
-<cuik-footer
-  *ngIf="
-    this.router.isActive('/support', true) || this.router.isActive('/', true)
-  "
-></cuik-footer>
+<div class="body">
+  <cuik-nav-preset
+    *ngIf="
+      this.router.isActive('/support', true) || this.router.isActive('/', true)
+    "
+  ></cuik-nav-preset>
+  <router-outlet></router-outlet>
+  <cuik-footer
+    *ngIf="
+      this.router.isActive('/support', true) || this.router.isActive('/', true)
+    "
+  ></cuik-footer>
+</div>
+<div class="loading" *ngIf="appLoading">
+  <app-circles-to-rhumbuses-spinner
+    [animationDuration]="2000"
+    [color]="'#0f3057'"
+  ></app-circles-to-rhumbuses-spinner>
+</div>

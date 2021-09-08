@@ -2,9 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IChangeLogs } from 'src/app/Interfaces/IChangeLog';
-
-import changelogsJSON from '../../../data/changelogs.json';
-import { TITLES } from '../news.component';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'cuik-change-log',
@@ -12,27 +10,51 @@ import { TITLES } from '../news.component';
   styleUrls: ['./change-log.component.scss'],
 })
 export class ChangeLogComponent implements OnInit, OnDestroy {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly news: NewsService
+  ) {}
 
   changelogs!: IChangeLogs;
   title!: string;
-
-  typedChangeLogs: IChangeLogs[] = changelogsJSON.changelogs;
+  query!: string;
 
   subscriptions: Subscription[] = [];
 
   ngOnInit(): void {
     this.subscriptions.push(
       this.route.paramMap.subscribe((map) => {
-        const changelogRouteIndex = map.get('changelog');
+        const changelogRoute = map.get('changelog');
 
-        if (changelogRouteIndex) {
-          const changelogIndex = parseFloat(changelogRouteIndex);
-          this.changelogs = this.typedChangeLogs[changelogIndex];
-          this.title = TITLES[changelogIndex];
+        if (changelogRoute) {
+          this.query = changelogRoute;
+          this.news.get(changelogRoute).then((changelogs: IChangeLogs) => {
+            this.changelogs = changelogs;
+            this.title = this.capitalize(this.query.replace('./', ''));
+          });
         }
       })
     );
+  }
+
+  capitalize(sentence: string): string {
+    let words = [''];
+    if (sentence.includes('-')) {
+      words = sentence.split('-');
+    } else {
+      words = [sentence];
+    }
+    let capitalized = '';
+
+    for (const word of words) {
+      const splitWord = word.split('');
+
+      splitWord[0] = splitWord[0].toUpperCase();
+
+      capitalized += splitWord.join('') + ' ';
+    }
+
+    return capitalized;
   }
 
   ngOnDestroy(): void {

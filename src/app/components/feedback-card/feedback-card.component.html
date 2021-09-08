@@ -26,7 +26,12 @@
         *ngIf="typeSelect === 'issue' || typeSelect === 'suggestion'"
       >
         <h3>Select an app for feedback:</h3>
-        <select ngDefaultControl [(ngModel)]="app" id="appSelect">
+        <select
+          
+          ngDefaultControl
+          [(ngModel)]="app"
+          id="appSelect"
+        >
           <option value="cuikconvertor">Cuik Convertor</option>
           <option value="apptray">Apptray</option>
         </select>

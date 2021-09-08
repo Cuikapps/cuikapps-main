@@ -11,4 +11,10 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {}
+
+  requestPassReset(email: string, newPass: string, confirmPass: string): void {
+    if (newPass === confirmPass) {
+      this.authService.forgotPassword(email, newPass);
+    }
+  }
 }

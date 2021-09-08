@@ -9,10 +9,11 @@ export class DashboardComponent implements OnInit {
   constructor() {}
 
   titles: string[] = ['Profile', 'Password', 'Danger Zone'];
+  routes: string[] = ['./profile', './password', './dangerzone'];
 
   ngOnInit(): void {}
 
-  get screenWidth() {
+  get screenWidth(): number {
     return window.innerWidth;
   }
 }

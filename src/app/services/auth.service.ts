@@ -1,213 +1,273 @@
-import { Injectable, NgZone } from '@angular/core';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import { AngularFireAuth } from '@angular/fire/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUser } from '../Interfaces/IUser';
+import { IUser } from '../Interfaces/iuser';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { IUpdateUser } from '../Interfaces/IUpdateUser';
+import { AuthURLs } from '../EApiUrls';
+import { LoadingService } from './loading.service';
+import { CookieService } from './cookie.service';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  userState!: firebase.User | null;
-  storeData!: IUser;
+  storeData: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(
+    null
+  );
+  isVerified = false;
 
-  isLoggedIn: boolean = localStorage.getItem('user') ? true : false;
-  isVerified: boolean = false;
+  headers = new HttpHeaders({
+    'Access-Control-Allow-Origin': 'https://cuikapps.uc.r.appspot.com',
+    'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
+  });
 
   constructor(
-    public afs: AngularFirestore,
-    public afAuth: AngularFireAuth,
-    public router: Router,
-    public ngZone: NgZone
+    private readonly router: Router,
+    private readonly http: HttpClient,
+    private readonly loading: LoadingService,
+    private readonly cookie: CookieService
   ) {
-    this.afAuth.authState.subscribe((user) => {
-      if (user) {
-        localStorage.setItem('user', user.uid);
+    if (this.isLoggedIn) {
+      this.getStoreData();
+    }
+  }
 
-        this.userState = user;
-        this._createStoreData(user);
+  async signIn(email: string, password: string): Promise<void> {
+    try {
+      await this.loading.load<void>(async () => {
+        await this.http
+          .post<void>(
+            environment.apiURL + AuthURLs.SIGN_IN,
+            {
+              email,
+              password,
+            },
+            { withCredentials: true }
+          )
+          .toPromise();
 
-        this.isLoggedIn = true;
-        if (user.emailVerified) this.isVerified = true;
-        else this.isVerified = false;
-        this.SetDocData();
-      } else {
-        this.isLoggedIn = false;
-        localStorage.removeItem('user');
+        this.cookie.setCookie('isLoggedIn', 'true', 30 * 24 * 60 * 60);
+        localStorage.setItem('current-email', email);
+      });
+    } catch (error) {
+      this.cookie.deleteCookie('isLoggedIn');
+      alert('Either Password or Email was entered incorrectly');
+      console.error(error);
+    }
+
+    await this.getStoreData();
+
+    this.router.navigate(['/']);
+  }
+
+  async getStoreData(): Promise<void> {
+    try {
+      const user = await this.loading.load<IUser | null>(async () => {
+        if (this.isLoggedIn) {
+          return this.http
+            .get<IUser>(environment.apiURL + AuthURLs.GET_USER, {
+              headers: this.headers,
+              withCredentials: true,
+            })
+            .toPromise();
+        } else {
+          return null;
+        }
+      });
+      this.storeData.next(user);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  get isLoggedIn(): boolean {
+    if (this.cookie.getCookie('isLoggedIn')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async signUp(email: string, password: string): Promise<void> {
+    try {
+      const res = await this.loading.load<string>(() => {
+        const result = this.http
+          .post(
+            environment.apiURL + AuthURLs.SIGN_UP,
+            {
+              email,
+              password,
+            },
+            {
+              headers: this.headers,
+              responseType: 'text',
+            }
+          )
+          .toPromise();
+        localStorage.setItem('current-email', email);
+        return result;
+      });
+
+      if (res === 'User Created') {
+        this.router.navigate(['/verify-email-address']);
       }
-    });
-    this.afAuth.user.subscribe((userData) => {
-      if (userData && this.isLoggedIn) {
-        this.userState = userData;
-        this._createStoreData(userData);
-        this.SetDocData();
-      } else this.userState = null;
-    });
-  }
-
-  private _createStoreData(data: firebase.User) {
-    if (data.displayName && data.email && data.emailVerified) {
-      this.storeData = {
-        uid: data.uid,
-        displayName: data.displayName,
-        photoURL: data.photoURL,
-        email: data.email,
-        emailVerified: data.emailVerified,
-      };
+    } catch (error) {
+      console.error(error);
     }
   }
 
-  SignIn(email: string, password: string): void {
-    this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-      })
-      .catch((error) => {
-        window.alert(error.message);
+  async forgotPassword(email: string, newPassword: string): Promise<void> {
+    try {
+      await this.loading.load<void>(() => {
+        return this.http
+          .post<void>(
+            environment.apiURL + AuthURLs.RESET_PASS,
+            {
+              email,
+              newPassword,
+            },
+            {
+              headers: this.headers,
+              withCredentials: true,
+            }
+          )
+          .toPromise();
       });
-  }
-
-  SignUp(email: string, password: string): void {
-    this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        this.SendVerificationMail();
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
-  }
-
-  SendVerificationMail() {
-    this.afAuth.currentUser.then((u): void => {
-      if (u) u.sendEmailVerification();
-      this.router.navigate(['verify-email-address']);
-    });
-  }
-
-  ForgotPassword(passwordResetEmail: string): void {
-    this.afAuth
-      .sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
-  }
-
-  GoogleAuth(): void {
-    this.AuthLogin(new firebase.auth.GoogleAuthProvider());
-  }
-
-  AuthLogin(provider: firebase.auth.AuthProvider): void {
-    this.afAuth
-      .signInWithPopup(provider)
-      .then(() => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
-  }
-
-  SetDocData(): void {
-    if (this.storeData && this.userState) {
-      this.afs.collection('users').doc(this.userState.uid).set(this.storeData, {
-        merge: true,
-      });
+    } catch (error) {
+      console.error(error);
     }
   }
 
-  SignOut(): void {
-    this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
+  async signOut(): Promise<void> {
+    try {
+      await this.loading.load(async () => {
+        await this.http
+          .post(
+            environment.apiURL + AuthURLs.SIGN_OUT,
+            {},
+            { withCredentials: true }
+          )
+          .toPromise();
+        this.cookie.deleteCookie('isLoggedIn');
+        await this.getStoreData();
+      });
+
       this.router.navigate(['sign-in']);
-    });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  DeleteUser(): void {
-    this.afAuth.currentUser.then((user) => {
-      if (user) user?.delete();
-      if (this.userState) {
-        this.afs.doc(`users/${this.userState.uid}`).delete();
-        localStorage.removeItem('user');
-        this.router.navigate(['']);
-      }
-    });
-  }
+  async uploadUserImage(file: File): Promise<void> {
+    const splitName = file.name.split('.');
+    const fileExtension: string = splitName[splitName.length - 1];
+    const fileReader = new FileReader();
 
-  /**
-   * Make sure that the user is authenticated before calling these.
-   */
-  get Email() {
-    if (this.userState && this.userState.email) return this.userState.email;
-    else return '';
-  }
-  set Email(v: string) {
-    this.afAuth.currentUser.then((user): void => {
-      if (user) user?.updateEmail(v);
-      if (this.userState) {
-        const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-          `users/${this.userState.uid}`
-        );
-        userRef.update({
-          email: v,
+    if (this.storeData.value) {
+      try {
+        await this.loading.load(async () => {
+          await this.http
+            .post<void>(
+              environment.apiURL + AuthURLs.UPLOAD_PROFILE,
+              {
+                formData: {
+                  file_buffer: await this.readFile(file),
+                  type: fileExtension,
+                },
+              },
+              {
+                headers: this.headers,
+                withCredentials: true,
+              }
+            )
+            .toPromise();
+
+          await this.getStoreData();
         });
+      } catch (error) {
+        console.error(error);
       }
+    }
+  }
+
+  readFile(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsBinaryString(file);
+      reader.onload = () => {
+        if (reader.result) {
+          let encoded = reader.result.toString().replace(/^data:(.*,)?/, '');
+          // if (encoded.length % 4 > 0) {
+          //   encoded += '='.repeat(4 - (encoded.length % 4));
+          // }
+          resolve(reader.result as string);
+        }
+      };
+      reader.onerror = (error) => reject(error);
     });
   }
 
-  get EmailVerified() {
-    if (this.userState && this.userState.emailVerified)
-      return this.userState.emailVerified;
-    else return false;
+  async updateUser(userData: IUpdateUser): Promise<void> {
+    try {
+      await this.loading.load(async () => {
+        await this.http
+          .post(environment.apiURL + AuthURLs.UPDATE_USER, userData, {
+            headers: this.headers,
+            withCredentials: true,
+          })
+          .toPromise();
+        await this.getStoreData();
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  get DisplayName() {
-    if (this.userState && this.userState.displayName)
-      return this.userState.displayName;
-    else return '';
-  }
-  set DisplayName(v: string) {
-    this.afAuth.currentUser.then((user) => {
-      if (user) user.updateProfile({ displayName: v });
-      if (this.userState) {
-        const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-          `users/${this.userState.uid}`
-        );
-        userRef.update({
-          displayName: v,
-        });
-      }
-    });
+  async reconfirmEmail(): Promise<void> {
+    try {
+      await this.loading.load(async () => {
+        if (
+          this.storeData.value?.email ||
+          localStorage.getItem('current-email')
+        ) {
+          await this.http
+            .post(
+              environment.apiURL +
+                AuthURLs.CONFIRM_EMAIL +
+                `?email=${
+                  this.storeData.value?.email ??
+                  localStorage.getItem('current-email') ??
+                  ''
+                }`,
+              {
+                headers: this.headers,
+                withCredentials: true,
+              }
+            )
+            .toPromise();
+        }
+      });
+    } catch (error) {
+      alert('Failed to send user email confirmation.');
+      console.error(error);
+    }
   }
 
-  get PhotoURL(): string | null {
-    if (this.userState && this.userState.photoURL)
-      return this.userState.photoURL;
-    else return null;
-  }
-  set PhotoURL(v: string | null) {
-    this.afAuth.currentUser.then((user) => {
-      if (user) user.updateProfile({ photoURL: v });
-      if (this.userState) {
-        const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-          `users/${this.userState.uid}`
-        );
-        userRef.update({
-          photoURL: v,
-        });
-      }
-    });
+  async deleteUser(): Promise<void> {
+    try {
+      await this.loading.load(async () => {
+        await this.http
+          .delete(environment.apiURL + AuthURLs.DELETE_USER, {
+            headers: this.headers,
+            withCredentials: true,
+          })
+          .toPromise();
+        await this.signOut();
+        await this.getStoreData();
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

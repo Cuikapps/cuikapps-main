@@ -12,8 +12,9 @@
       type="file"
       id="image-upload"
       accept="image/png, image/jpeg"
+      (change)="changeDisplayFile(userImageInput)"
     />
-    Choose a profile image
+    {{fileDisplayName}}
   </label>
   <button (click)="setUserImage(userImageInput)">Set</button>
 </div>

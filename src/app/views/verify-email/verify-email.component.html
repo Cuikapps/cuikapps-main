@@ -19,7 +19,9 @@
     <div class="formGroup" *ngIf="authService.isLoggedIn">
       <p class="text-center">
         We have sent a confirmation email to
-        <strong>{{ authService.Email }}</strong
+        <strong>{{
+          authService.storeData.value?.email || "Failed To Get User Email"
+        }}</strong
         >.
       </p>
       <p class="text-center">
@@ -33,7 +35,7 @@
       <button
         type="button"
         class="verification-btn"
-        (click)="authService.SendVerificationMail()"
+        (click)="authService.reconfirmEmail()"
       >
         Resend Verification Email
       </button>

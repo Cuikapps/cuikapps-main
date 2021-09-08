@@ -12,15 +12,15 @@ export class DangerZoneComponent implements OnInit {
   @ViewChild('modal') modal!: HTMLButtonElement;
 
   userEmail: string | null = '';
-  confirmText: string = '';
-  warningModality: boolean = false;
+  confirmText = '';
+  warningModality = false;
 
   ngOnInit(): void {}
 
-  deleteUserAccount() {
+  async deleteUserAccount(): Promise<void> {
     if (this.authService.isLoggedIn) {
-      if (this.confirmText == this.authService.Email) {
-        this.authService.DeleteUser();
+      if (this.confirmText === this.authService.storeData.value?.email) {
+        await this.authService.deleteUser();
         alert('Your account has been deleted');
       } else {
         alert('Please confirm again');
@@ -30,7 +30,9 @@ export class DangerZoneComponent implements OnInit {
 
   openModal() {
     if (this.authService.isLoggedIn) {
-      this.userEmail = this.authService.Email;
+      this.userEmail =
+        this.authService.storeData.value?.email ||
+        'Error: User Email Not Found';
     }
     this.warningModality = !this.warningModality;
   }

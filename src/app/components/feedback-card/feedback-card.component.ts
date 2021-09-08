@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from 'src/app/Interfaces/IFeedback';
-import { FirestoreService } from '../../services/firestore.service';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'cuik-feedback-card',
@@ -13,32 +12,19 @@ export class FeedbackCardComponent implements OnInit {
   app!: string;
   desc!: string;
 
-  constructor(private store: FirestoreService) {}
+  constructor(private readonly feedback: FeedbackService) {}
 
-  submitResponse() {
+  submitResponse(): void {
     if (this.title && this.desc) {
-      if (this.app) {
-        this.store.create<Feedback>(
-          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
-          {
-            feedbackType: this.typeSelect,
-            app: this.app,
-            desc: this.desc,
-          },
-          false
-        );
-      } else {
-        this.store.create<Feedback>(
-          'feedback/title=' + this.title + ' id=' + this.store.genRandID(),
-          {
-            feedbackType: this.typeSelect,
-            app: this.app,
-            desc: this.desc,
-          },
-          false
-        );
+      if (this.typeSelect !== 'other' && !this.app) {
+        alert('You must provide value for app field.');
+        return;
       }
-      alert('Your feedback has been submitted, thank you for the feedback');
+      this.feedback
+        .createFeedback(this.title, this.typeSelect, this.desc, this.app)
+        .then(() => {
+          alert('Your feedback has been submitted, thank you for the feedback');
+        });
     } else {
       alert('Please add a title and description');
     }

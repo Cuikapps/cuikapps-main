@@ -1,7 +1,14 @@
 {
   "projects": {
-    "default": "cuikapps",
-    "production": "cuikapps",
-    "cuikapps": "cuikapps"
+    "default": "cuikapps"
+  },
+  "targets": {
+    "cuikapps": {
+      "hosting": {
+        "cuikapps": [
+          "cuikapps"
+        ]
+      }
+    }
   }
 }

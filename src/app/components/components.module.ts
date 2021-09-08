@@ -9,7 +9,6 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
-import { ToRoutePipe } from '../pipes/to-route.pipe';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ChangelogViewerComponent } from './changelog-viewer/changelog-viewer.component';
@@ -25,7 +24,6 @@ import { ChangelogViewerComponent } from './changelog-viewer/changelog-viewer.co
     VerifyEmailComponent,
     FooterComponent,
     SideNavComponent,
-    ToRoutePipe,
     ChangelogViewerComponent,
   ],
   exports: [
@@ -37,7 +35,6 @@ import { ChangelogViewerComponent } from './changelog-viewer/changelog-viewer.co
     VerifyEmailComponent,
     FooterComponent,
     SideNavComponent,
-    ToRoutePipe,
     FormsModule,
     ChangelogViewerComponent,
   ],

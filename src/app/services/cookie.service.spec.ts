@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FirestorageService } from './firestorage.service';
+import { CookieService } from './cookie.service';
 
-describe('FirestorageService', () => {
-  let service: FirestorageService;
+describe('CookieService', () => {
+  let service: CookieService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FirestorageService);
+    service = TestBed.inject(CookieService);
   });
 
   it('should be created', () => {

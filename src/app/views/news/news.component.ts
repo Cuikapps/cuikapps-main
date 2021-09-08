@@ -15,8 +15,8 @@ export const TITLES: string[] = [
 export class NewsComponent implements OnInit {
   constructor() {}
 
-  titles = TITLES;
-  routeWithChildren = false;
+  titles = ['Main', 'Website', 'Cuik Convertor', 'Apptray'];
+  routes = ['./main', './website', './cuik-convertor', './apptray'];
 
   ngOnInit(): void {}
 

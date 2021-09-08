@@ -1,23 +1,28 @@
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { AfterContentChecked } from '@angular/core';
+import { AfterContentChecked, OnDestroy } from '@angular/core';
 import { Component, Input, ViewChild, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'cuik-nav-preset',
   templateUrl: './nav-preset.component.html',
   styleUrls: ['./nav-preset.component.scss'],
 })
-export class NavPresetComponent implements OnInit, AfterContentChecked {
+export class NavPresetComponent
+  implements OnInit, AfterContentChecked, OnDestroy
+{
   constructor(public authService: AuthService, public router: Router) {}
+
+  subscriptions: Subscription[] = [];
 
   @ViewChild('navList') navList!: HTMLUListElement;
   @Input() pageActive!: string;
 
-  navToggleClass: string = '';
-  loginPanel: boolean = false;
-  activeRoute: string = '/sign-in';
-  image: string = '../../../assets/img/account.png';
+  navToggleClass = '';
+  loginPanel = false;
+  activeRoute = '/sign-in';
+  image = '../../../assets/img/account.png';
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn) {
@@ -27,13 +32,17 @@ export class NavPresetComponent implements OnInit, AfterContentChecked {
     }
   }
 
-  ngAfterContentChecked() {
-    if (this.authService.PhotoURL) {
-      this.image = this.authService.PhotoURL;
-    } else this.image = '../../../assets/img/account.png';
+  ngAfterContentChecked(): void {
+    this.subscriptions[0] = this.authService.storeData.subscribe((value) => {
+      if (value?.photoURL && value?.photoURL !== 'No Image') {
+        this.image = value?.photoURL;
+      } else {
+        this.image = '../../../assets/img/account.png';
+      }
+    });
   }
 
-  toggleNav(e: boolean) {
+  toggleNav(e: boolean): void {
     if (!e) {
       this.navToggleClass = 'nav-open';
     } else {
@@ -42,15 +51,18 @@ export class NavPresetComponent implements OnInit, AfterContentChecked {
   }
 
   /** Return whether the logged in user has a profile image */
-  get UserHasImage() {
+  get UserHasImage(): boolean {
     if (this.authService.isLoggedIn) {
-      if (this.authService.PhotoURL) return true;
-      else return false;
+      if (this.authService.storeData.value?.photoURL) {
+        return true;
+      } else {
+        return false;
+      }
     }
     return false;
   }
 
-  setActiveRoute() {
+  setActiveRoute(): void {
     if (this.authService.isLoggedIn) {
       this.activeRoute = '';
     } else {
@@ -61,12 +73,20 @@ export class NavPresetComponent implements OnInit, AfterContentChecked {
   openLogin(): void {
     if (this.authService.isLoggedIn) {
       this.loginPanel = !this.loginPanel;
-    } else return;
+    } else {
+      return;
+    }
   }
 
-  navigateToDash() {
+  navigateToDash(): void {
     this.router
       .navigate(['/dashboard/profile'])
       .then(() => this.router.navigate(['/dashboard/profile']));
+  }
+
+  ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) {
+      subscription.unsubscribe();
+    }
   }
 }

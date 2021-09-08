@@ -10,5 +10,14 @@ import { AuthService } from '../../services/auth.service';
 export class SignInComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (
+      confirm(
+        'This site uses cookie for authentication, if you want to login, then you must agree to cookies.'
+      )
+    ) {
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 }

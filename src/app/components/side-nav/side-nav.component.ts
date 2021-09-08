@@ -1,5 +1,12 @@
-import { AfterContentChecked, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,8 +14,12 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
 })
-export class SideNavComponent implements OnInit, AfterContentChecked {
+export class SideNavComponent
+  implements OnInit, AfterContentChecked, OnDestroy
+{
   constructor(public router: Router, private authService: AuthService) {}
+
+  subscriptions: Subscription[] = [];
 
   @Input('titles') sideNavTitles!: string[];
   @Input('routes') sideNavRoutes!: string[];
@@ -27,17 +38,13 @@ export class SideNavComponent implements OnInit, AfterContentChecked {
   }
 
   ngAfterContentChecked(): void {
-    if (this.authService.PhotoURL) {
-      this.image = this.authService.PhotoURL;
-    } else {
-      this.image = '../../../assets/img/account.png';
-    }
-  }
-
-  updateImage(): void {
-    if (this.authService.PhotoURL) {
-      this.image = this.authService.PhotoURL;
-    }
+    this.subscriptions[0] = this.authService.storeData.subscribe((value) => {
+      if (value?.photoURL && value?.photoURL !== 'No Image') {
+        this.image = value?.photoURL;
+      } else {
+        this.image = '../../../assets/img/account.png';
+      }
+    });
   }
 
   toggleSideNav(): void {
@@ -46,5 +53,11 @@ export class SideNavComponent implements OnInit, AfterContentChecked {
 
   get screenWidth(): number {
     return window.innerWidth;
+  }
+
+  ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) {
+      subscription.unsubscribe();
+    }
   }
 }
